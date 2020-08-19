@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_explorer"
+        android:icon="@drawable/ic_compass"
+        android:title="@string/title_explorer" />
+
+    <item
+        android:id="@+id/navigation_favorites"
+        android:icon="@mipmap/ic_favorites"
+        android:title="@string/title_favorites" />
+
+    <item
+        android:id="@+id/navigation_my_plans"
+        android:icon="@mipmap/ic_myplan"
+        android:title="@string/title_my_plans" />
+
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@mipmap/ic_account"
+        android:title="@string/title_account" />
+
+</menu>

@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="normal_margin">16dp</dimen>
+    <dimen name="activity_vertical_four">4dp</dimen>
+    <dimen name="activity_vertical_eight">8dp</dimen>
+    <dimen name="activity_vertical_twele">12dp</dimen>
+</resources>

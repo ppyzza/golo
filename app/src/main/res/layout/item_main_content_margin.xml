@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/normal_margin"
+    android:layout_marginBottom="@dimen/normal_margin"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_title"
+        android:background="#f6f7f8"
+        >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="Explorer"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/normal_margin"
+            android:text="See All"
+            android:layout_centerVertical="true"
+            android:textColor="#2c85ff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/rl_title"
+        android:id="@+id/content_second_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_vertical_eight"
+        android:layout_marginEnd="@dimen/activity_vertical_eight" />
+
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu_explorer_text">
+        <item>@string/explorer_itineraries</item>
+        <item>@string/explorer_locals</item>
+        <item>@string/explorer_must_see</item>
+        <item>@string/explorer_travelling</item>
+        <item>@string/explorer_food_drink</item>
+        <item>@string/explorer_shopping</item>
+        <item>@string/explorer_nightlife</item>
+        <item>@string/explorer_more</item>
+    </string-array>
+    <integer-array name="menu_explorer_image">
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/ic_itineraries</item>
+    </integer-array>
+</resources>

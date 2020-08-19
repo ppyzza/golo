@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f6f7f8"
+        android:id="@+id/rl_trip_name"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_twele"
+            android:layout_marginBottom="@dimen/activity_vertical_twele"
+            android:text="Trip Name"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_below="@+id/rl_trip_name"
+        android:id="@+id/edt_trip_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:hint="Trip Name" />
+
+    <RelativeLayout
+        android:layout_below="@+id/edt_trip_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f6f7f8"
+        android:id="@+id/rl_destination"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_twele"
+            android:layout_marginBottom="@dimen/activity_vertical_twele"
+            android:text="Destination"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_below="@+id/rl_destination"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:id="@+id/edt_where"
+        android:hint="Where are you going?" />
+
+    <EditText
+        android:layout_below="@+id/edt_where"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:id="@+id/edt_start_end"
+        android:hint="Start Date - End Date" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    >
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Planning"
+        android:background="#2c85ff"
+        android:textColor="@android:color/white"
+
+        />
+</RelativeLayout>
+</RelativeLayout>

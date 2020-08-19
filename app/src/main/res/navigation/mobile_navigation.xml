@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_explorer">
+
+    <fragment
+        android:id="@+id/navigation_explorer"
+        android:name="com.hackathon.golo.fragment.ExplorerFragment"
+        android:label="@string/title_explorer"
+        tools:layout="@layout/fragment_explorer" />
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.hackathon.golo.fragment.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/navigation_my_plans"
+        android:name="com.hackathon.golo.fragment.MyPlansFragment"
+        android:label="@string/title_my_plans"
+        tools:layout="@layout/fragment_my_plans" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.hackathon.golo.fragment.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_account" />
+</navigation>

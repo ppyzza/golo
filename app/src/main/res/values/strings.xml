@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">GoLo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_explorer">Explorer</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_my_plans">My Plans</string>
+    <string name="title_account">Account</string>
+    <string name="explorer_itineraries">Itineraries</string>
+    <string name="explorer_locals">Locals</string>
+    <string name="explorer_must_see">Must See</string>
+    <string name="explorer_travelling">Travelling</string>
+    <string name="explorer_food_drink">Food&amp;Drink</string>
+    <string name="explorer_shopping">Shopping</string>
+    <string name="explorer_nightlife">Nightlife</string>
+    <string name="explorer_more">More</string>
+    <string name="item_text">Reviews</string>
+    <string name="item_from_here">%1s from here</string>
+    <string name="item_follow">Follow</string>
+    <string name="item_see_all">See All</string>
+    <string name="text_where_are">Where are you going?</string>
+    <string name="text_popular_destination">Popular Destinations</string>
+
+    <string name="explore_menu_1">Explorer by</string>
+    <string name="explore_menu_2">Offers Around You</string>
+    <string name="explore_menu_3">Suggested Travel Mates</string>
+    <string name="explore_menu_4">Trending Places</string>
+
+    <string name="new_plan_header">Create New Plan</string>
+    <string name="new_plan_trip_name">Trip Name</string>
+    <string name="new_plan_destination">Destination</string>
+    <string name="new_plan_start_planning">Start Planning</string>
+    <string name="new_plan_trip_name_hint">Trip Name</string>
+    <string name="new_plan_trip_start_end_date">Start Date - End Date</string>
+
+</resources>
