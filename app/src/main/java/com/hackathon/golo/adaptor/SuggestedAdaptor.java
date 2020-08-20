@@ -4,13 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hackathon.golo.R;
-import com.hackathon.golo.model.Explorer;
+
+import com.hackathon.golo.model.TravelMate;
 
 import java.util.ArrayList;
 
@@ -18,11 +21,11 @@ import java.util.ArrayList;
 public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.ViewHolder> {
 
     Context mContext;
-    ArrayList<Explorer> explorerArrayList;
+    ArrayList<TravelMate> travelMateArrayList;
 
-    public SuggestedAdaptor(Context context, ArrayList<Explorer> explorers) {
+    public SuggestedAdaptor(Context context, ArrayList<TravelMate> explorers) {
         mContext = context;
-        explorerArrayList = explorers;
+        travelMateArrayList = explorers;
     }
 
     @NonNull
@@ -36,13 +39,16 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(explorerArrayList.get(position).getTitle());
-        holder.tvDesc.setText(explorerArrayList.get(position).getTitle());
+        holder.tvTitle.setText(travelMateArrayList.get(position).getTitle());
+        holder.tvDesc.setText(travelMateArrayList.get(position).getDescription());
+
+        Glide.with(mContext).load(travelMateArrayList.get(position).getAvatar()).into(holder.ivProfile);
+
     }
 
     @Override
     public int getItemCount() {
-        return explorerArrayList.size();
+        return travelMateArrayList.size();
     }
 
     @Override
@@ -59,11 +65,13 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
 
         TextView tvTitle;
         TextView tvDesc;
+        ImageView ivProfile;
 
         ViewHolder(View view) {
             super(view);
             tvTitle = view.findViewById(R.id.tv_title);
             tvDesc = view.findViewById(R.id.tv_desc);
+            ivProfile = view.findViewById(R.id.iv_suggest);
         }
     }
 }
