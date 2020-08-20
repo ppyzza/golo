@@ -115,7 +115,7 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
 
 
-        getTrending();
+        // getTrending();
 
         mExplorerPresenter = new ExplorerPresenter(this);
         mExplorerPresenter.getTravelMates();
@@ -248,6 +248,6 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-        // setAdaptor();
+        setAdaptor();
     }
 }
