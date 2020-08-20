@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hackathon.golo.model.PlanModel;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,10 +49,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
         FirebaseApp.initializeApp(this);
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mMessagesRef = mRootRef.child("popular");
+        DatabaseReference mPlanRef = mRootRef.child("plan/" + getUid());
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        mMessagesRef.addValueEventListener(new ValueEventListener() {
+        mPlanRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.i("Tag", dataSnapshot.toString());
@@ -71,6 +75,21 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        createPlan();
+    }
+
+    private void createPlan() {
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mPlanRef = mRootRef.child("plan/" + getUid());
+        String key = mPlanRef.push().getKey();
+        PlanModel planModel = new PlanModel("ไว้ไปด้วยกันนะ", "1", "2020-08-21", "2020-08-22");
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put("/" + key, planModel);
+        mPlanRef.updateChildren(childUpdates);
+    }
+
+    private String getUid() {
+        return "userid-1";
     }
 
 }
