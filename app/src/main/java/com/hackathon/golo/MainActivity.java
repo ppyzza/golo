@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mMessagesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i("Tag", dataSnapshot.toString());
+               // Log.d("FJTAG", dataSnapshot.toString());
 //                String value = dataSnapshot.getValue(String.class);
 //                builder.setCancelable(false);
 //                builder.setMessage(value);

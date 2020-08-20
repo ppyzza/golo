@@ -67,5 +67,14 @@
             android:layout_marginBottom="@dimen/activity_vertical_eight"
             />
 
+        <Button
+            android:id="@+id/bt_follow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:text="Follow"
+            android:layout_margin="10dp"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

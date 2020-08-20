@@ -46,7 +46,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:17.0.0'
     implementation 'com.karumi:dexter:6.2.1'
     implementation 'org.th.tatsdk:tatsdk:1.5.1'
-    compile "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // GSON with Retrofit
