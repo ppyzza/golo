@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.hackathon.golo.fragment.ExplorerFragment;
+import com.hackathon.golo.fragment.FindExplorerFragment;
 
 public class PagerPageAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
@@ -24,7 +25,7 @@ public class PagerPageAdapter extends FragmentStatePagerAdapter {
         switch (position) {
             default:
                 tabPosition = position;
-                ExplorerFragment mainFragment = new ExplorerFragment();
+                FindExplorerFragment mainFragment = new FindExplorerFragment();
                 return mainFragment;
         }
     }

@@ -4,20 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+    <EditText
+        android:id="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_pin"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:background="@drawable/bg_edt_search"
+        android:layout_marginTop="@dimen/activity_vertical_eight"
+        android:layout_marginBottom="@dimen/activity_vertical_eight"
+        android:drawablePadding="@dimen/activity_vertical_eight"
+        />
+    <RelativeLayout
+        android:layout_below="@+id/edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabBackground="@color/colorPrimary"
+        android:id="@+id/rl_tab"
+        >
     <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tab_layout"
         app:tabMode="scrollable"
-        app:tabContentStart="56dp"
+        app:tabTextColor="#1f65e0"
+        app:tabSelectedTextColor="@color/colorWhite"
+        app:tabBackground="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorWhite"
         >
 
-
-
+        <!--android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorWhite" -->
     </com.google.android.material.tabs.TabLayout>
+    </RelativeLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/tab_layout"/>
+        android:layout_below="@id/rl_tab"/>
 </RelativeLayout>
