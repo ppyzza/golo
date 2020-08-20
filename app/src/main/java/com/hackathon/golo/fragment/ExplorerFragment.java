@@ -3,6 +3,7 @@ package com.hackathon.golo.fragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.location.Location;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -116,8 +118,9 @@ public class ExplorerFragment extends Fragment {
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
+        setAdaptor();
 
-        getTrending();
+        // getTrending();
 
         return rootView;
     }
@@ -134,12 +137,20 @@ public class ExplorerFragment extends Fragment {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                         Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
-                        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-                            @Override
-                            public void onSuccess(Location location) {
-                                getTAT(location.getLatitude(), location.getLongitude());
+                        try {
+                            if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                                    @Override
+                                    public void onSuccess(Location location) {
+                                        getTAT(location.getLatitude(), location.getLongitude());
+                                    }
+                                });
+                                return;
                             }
-                        });
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
