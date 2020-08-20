@@ -39,7 +39,7 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(travelMateArrayList.get(position).getTitle());
+        holder.tvTitle.setText(travelMateArrayList.get(position).getName());
         holder.tvDesc.setText(travelMateArrayList.get(position).getDescription());
 
         Glide.with(mContext).load(travelMateArrayList.get(position).getAvatar()).into(holder.ivProfile);
