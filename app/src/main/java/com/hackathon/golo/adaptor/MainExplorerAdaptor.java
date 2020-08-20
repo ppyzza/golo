@@ -97,7 +97,7 @@ public class MainExplorerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         layoutManager = new GridLayoutManager(mContext, 1, GridLayoutManager
                 .HORIZONTAL, false);
 
-        RecyclerView.Adapter adapter = new SuggestedAdaptor(mContext, mainExplorerModel.getExplorerArrayList());
+        RecyclerView.Adapter adapter = new SuggestedAdaptor(mContext, mainExplorerModel.getTravelMateArrayList());
         suggestHolder.mRecyclerView.setLayoutManager(layoutManager);
         suggestHolder.mRecyclerView.addItemDecoration(new ItemDecorator(mActivity));
 

@@ -24,9 +24,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.hackathon.golo.R;
 import com.hackathon.golo.adaptor.MainExplorerAdaptor;
 import com.hackathon.golo.constans.GoloConstants;
+import com.hackathon.golo.contract.ExplorerContract;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.MainExplorerModel;
 import com.hackathon.golo.model.SearchResult;
+import com.hackathon.golo.model.TravelMate;
+import com.hackathon.golo.presenters.ExplorerPresenter;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -46,7 +49,7 @@ import org.th.tatsdk.search.TATPlacesSearchResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplorerFragment extends Fragment {
+public class ExplorerFragment extends Fragment implements ExplorerContract.View {
 
     private Activity mActivity;
     private Context mContext;
@@ -59,6 +62,8 @@ public class ExplorerFragment extends Fragment {
     private FusedLocationProviderClient mFusedLocationClient;
     private String apiKey = "GUjuQd31FzGhPuopjg3lM32arSZ1Ny(1YaEeMfeVbt2vtE3Xc777t4o4KOZObNLteprO3Q6xeaO3S4sxMOqdxQG=====2";
     private TATPlacesSearchParameter tatPlacesSearchParameter;
+    private ExplorerPresenter mExplorerPresenter;
+
 
     @Nullable
     @Override
@@ -108,16 +113,12 @@ public class ExplorerFragment extends Fragment {
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-        mainExplorerModel = new MainExplorerModel();
-        mainExplorerModel.setSeeMore(true);
-        mainExplorerModel.setTitle(getString(R.string.explore_menu_3));
-        mainExplorerModel.setViewType(GoloConstants.SUGGEST_VIEW);
-        mainExplorerModel.setExplorerArrayList(listExplorer);
-
-        mainExplorerModelArrayList.add(mainExplorerModel);
 
 
-        getTrending();
+//        getTrending();
+
+        mExplorerPresenter = new ExplorerPresenter(this);
+        mExplorerPresenter.getTravelMates();
 
         return rootView;
     }
@@ -232,5 +233,21 @@ public class ExplorerFragment extends Fragment {
         mAdapter = new MainExplorerAdaptor(mActivity, mActivity, mainExplorerModelArrayList);
 
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void showTrendingPlaceSuccess(ArrayList<TravelMate> travelMateList) {
+
+        MainExplorerModel mainExplorerModel;
+
+        mainExplorerModel = new MainExplorerModel();
+        mainExplorerModel.setSeeMore(true);
+        mainExplorerModel.setTitle(getString(R.string.explore_menu_3));
+        mainExplorerModel.setViewType(GoloConstants.SUGGEST_VIEW);
+        mainExplorerModel.setTravelMateArrayList(travelMateList);
+
+        mainExplorerModelArrayList.add(mainExplorerModel);
+
+        setAdaptor();
     }
 }

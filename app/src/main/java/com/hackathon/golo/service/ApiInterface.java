@@ -2,14 +2,14 @@ package com.hackathon.golo.service;
 
 import com.hackathon.golo.model.TravelMate;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 public interface ApiInterface {
 
-    @GET("users/my-profile")
-    Observable<List<TravelMate>> getTravelMates();
+    @GET("/suggest_travel_mate")
+    Observable<ArrayList<TravelMate>> getTravelMates();
 
 }
