@@ -115,7 +115,7 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
 
 
-//        getTrending();
+        getTrending();
 
         mExplorerPresenter = new ExplorerPresenter(this);
         mExplorerPresenter.getTravelMates();
@@ -186,7 +186,7 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
         TATGeolocation tatLocation = new TATGeolocation(latitude, longitude);
         tatPlacesSearchParameter = new TATPlacesSearchParameter(tatLocation, TATLanguage.THAI);
         // tatPlacesSearchParameter.setNumberOfResult(10);
-        //tatPlacesSearchParameter.setSearchRadius(1000);
+        tatPlacesSearchParameter.setSearchRadius(1000);
         //tatPlacesSearchParameter.set
 
         //s
@@ -248,6 +248,6 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-        setAdaptor();
+        // setAdaptor();
     }
 }
