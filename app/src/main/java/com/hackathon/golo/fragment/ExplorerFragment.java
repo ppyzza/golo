@@ -187,6 +187,8 @@ public class ExplorerFragment extends Fragment {
         // tatPlacesSearchParameter.setNumberOfResult(10);
         //tatPlacesSearchParameter.setSearchRadius(1000);
         //tatPlacesSearchParameter.set
+
+        //s
         TATPlaces.searchAsync(tatPlacesSearchParameter, new ServiceRequestListener<TATPlacesSearchResultSet>() {
             @Override
             public void onResponse(@Nullable TATPlacesSearchResultSet tatPlacesSearchResultSet) {
