@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "271718681896",
+    "firebase_url": "https://hackaton-81a24.firebaseio.com",
+    "project_id": "hackaton-81a24",
+    "storage_bucket": "hackaton-81a24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271718681896:android:210e1b2fa9bf835fdfd41d",
+        "android_client_info": {
+          "package_name": "com.hackathon.golo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "271718681896-kqejf1e0h9e5kmqt23aqljdhg30s68uf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1_LexMtZ_HVA6745b6wZO40VohRX0O1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "271718681896-kqejf1e0h9e5kmqt23aqljdhg30s68uf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
