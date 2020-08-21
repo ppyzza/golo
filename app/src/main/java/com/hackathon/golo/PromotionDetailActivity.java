@@ -24,16 +24,6 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_promotion_detail);
-
-        promotionPresenter = new PromotionPresenter(this);
-        promotionPresenter.getPromotion();
-
-        PromotionModel promotionModel = new PromotionModel();
-        promotionModel.setPromotionArrayList(promotionList);
-    }
-
-    private String getUid() {
-        return "userid-1";
     }
 
     @Override

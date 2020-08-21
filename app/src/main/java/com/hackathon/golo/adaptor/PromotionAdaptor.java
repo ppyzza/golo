@@ -41,17 +41,17 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.rv.setOnClickListener(new View.OnClickListener() {
+        holder.tvName.setText(promotionArrayList.get(position).getName());
+        holder.tvDesc.setText(promotionArrayList.get(position).getDescription());
+        holder.tvType.setText(promotionArrayList.get(position).getTypeCampaign());
+        holder.tvPoint.setText(promotionArrayList.get(position).getPoint());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(mContext, PromotionDetailActivity.class);
                 mContext.startActivity(i);
             }
         });
-        holder.tvName.setText(promotionArrayList.get(position).getName());
-        holder.tvDesc.setText(promotionArrayList.get(position).getDescription());
-        holder.tvType.setText(promotionArrayList.get(position).getTypeCampaign());
-        holder.tvPoint.setText(promotionArrayList.get(position).getPoint());
     }
 
     @Override
@@ -79,11 +79,9 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
         TextView tvDesc;
         TextView tvType;
         TextView tvPoint;
-        RecyclerView rv;
 
         ViewHolder(View view) {
             super(view);
-            rv = view.findViewById(R.id.container);
             tvName = view.findViewById(R.id.tv_name_coupon);
             tvDesc = view.findViewById(R.id.tv_description_coupon);
             tvType = view.findViewById(R.id.tv_type_coupon);
