@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="66dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
     android:paddingStart="15dp"
     android:paddingTop="10dp"
@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/location_name"
             tools:text="Pong Yang Adventure Park Experience"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,12 +36,11 @@
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_centerVertical="true"
-                android:layout_weight="1"
                 android:src="@drawable/ic_star"
                 app:srcCompat="@drawable/ic_star" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/score_review"
                 tools:text="4.4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,12 +52,12 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/review_and_distant"
                 tools:text="(67 Reviews) | 1.5 km from here"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:layout_toEndOf="@id/textView4"
+                android:layout_toEndOf="@id/score_review"
                 android:text="@string/planning_item_review"
                 android:textSize="12sp" />
         </RelativeLayout>
@@ -66,7 +65,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/location_more_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
