@@ -10,11 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackathon.golo.LocalGuideActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Locals;
+import com.hackathon.golo.tools.ItemDecorator;
 
 
 import java.util.ArrayList;
@@ -39,7 +41,7 @@ public class LocalListAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHold
                 view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_local_detail, null, false);
                 return new TopLocalHolder(view);
             case 1:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_local_list, null, false);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan_list, null, false);
                 return new PlanHolder(view);
         }
         return null;
@@ -64,6 +66,16 @@ public class LocalListAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     private void initPlanHolder(PlanHolder planHolder, Locals locals) {
+        RecyclerView.LayoutManager layoutManager = null;
+        layoutManager = new GridLayoutManager(mContext, 1, GridLayoutManager
+                .VERTICAL, false);
+
+        RecyclerView.Adapter adapter = new ItemLocationAdaptor(mContext, locals.getLocalDetail().getPlanListArrayList());
+        planHolder.mRecyclerView.setLayoutManager(layoutManager);
+        planHolder.mRecyclerView.addItemDecoration(new ItemDecorator(mContext));
+
+        planHolder.mRecyclerView.setAdapter(adapter);
+        planHolder.tvDetail.setText(locals.getLocalDetail().getDetail());
 
     }
 
@@ -84,13 +96,13 @@ public class LocalListAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     class PlanHolder extends RecyclerView.ViewHolder {
-        public TextView tvTitle;
-        public TextView tvMore;
+        public TextView tvDetail;
+        public RecyclerView mRecyclerView;
 
         PlanHolder(View v) {
             super(v);
-            tvTitle = v.findViewById(R.id.tv_title);
-            tvMore = v.findViewById(R.id.tv_more);
+            tvDetail = v.findViewById(R.id.tv_detail);
+            mRecyclerView = v.findViewById(R.id.content_second_recyclerview);
         }
     }
 
