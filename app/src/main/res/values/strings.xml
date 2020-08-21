@@ -33,5 +33,6 @@
     <string name="new_plan_start_planning">Start Planning</string>
     <string name="new_plan_trip_name_hint">Trip Name</string>
     <string name="new_plan_trip_start_end_date">Start Date - End Date</string>
+    <string name="planning">Planning</string>
 
 </resources>
