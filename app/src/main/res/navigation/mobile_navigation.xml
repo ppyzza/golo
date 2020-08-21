@@ -28,4 +28,9 @@
         android:name="com.hackathon.golo.fragment.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/planningFragment"
+        android:name="com.hackathon.golo.fragment.PlanningFragment"
+        android:label="fragment_planning"
+        tools:layout="@layout/fragment_planning" />
 </navigation>
