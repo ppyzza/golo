@@ -18,7 +18,15 @@ class PromotionPresenter(private val mView: PromotionContract.View) : PromotionC
         mModel.getPromotion()
     }
 
+    override fun getPromotionDetail() {
+        mModel.getPromotionDetail()
+    }
+
     override fun dataPromotion(promotion: ArrayList<Promotion>?) {
         mView.showPromotionSuccess(promotion)
+    }
+
+    override fun dataPromotionDetail(promotion: ArrayList<Promotion>?) {
+        mView.showPromotionDetailSuccess(promotion)
     }
 }

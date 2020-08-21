@@ -57,4 +57,9 @@ public class PromotionActivity extends AppCompatActivity implements PromotionCon
         mAdapter = new PromotionAdaptor(this, promotionList);
         mRecyclerView.setAdapter(mAdapter);
     }
+
+    @Override
+    public void showPromotionDetailSuccess(ArrayList<Promotion> promotion) {
+
+    }
 }
