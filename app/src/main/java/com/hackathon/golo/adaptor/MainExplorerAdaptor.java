@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackathon.golo.MainActivity;
+import com.hackathon.golo.MainTabActivity;
+import com.hackathon.golo.MultipleActivity;
 import com.hackathon.golo.PromotionActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.constans.GoloConstants;
@@ -84,7 +86,7 @@ public class MainExplorerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         promotionHolder.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mActivity, PromotionActivity.class);
+                Intent i = new Intent(mActivity, MainTabActivity.class);
                 mActivity.startActivity(i);
             }
         });

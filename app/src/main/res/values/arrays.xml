@@ -10,6 +10,10 @@
         <item>@string/explorer_nightlife</item>
         <item>@string/explorer_more</item>
     </string-array>
+    <string-array name="menu_coupon">
+        <item>Voucher</item>
+        <item>Coupon</item>
+    </string-array>
     <integer-array name="menu_explorer_image">
         <item>@drawable/must_see</item>
         <item>@drawable/travelling</item>
