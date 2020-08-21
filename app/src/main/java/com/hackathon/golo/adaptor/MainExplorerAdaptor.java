@@ -16,6 +16,7 @@ import com.hackathon.golo.MainActivity;
 import com.hackathon.golo.MainTabActivity;
 import com.hackathon.golo.MultipleActivity;
 import com.hackathon.golo.PromotionActivity;
+import com.hackathon.golo.PromotionDetailActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.constans.GoloConstants;
 import com.hackathon.golo.model.MainExplorerModel;
@@ -86,7 +87,7 @@ public class MainExplorerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         promotionHolder.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mActivity, MainTabActivity.class);
+                Intent i = new Intent(mActivity, PromotionDetailActivity.class);
                 mActivity.startActivity(i);
             }
         });
