@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="menu_explorer_text">
-        <item>@string/explorer_itineraries</item>
-        <item>@string/explorer_locals</item>
         <item>@string/explorer_must_see</item>
         <item>@string/explorer_travelling</item>
         <item>@string/explorer_food_drink</item>
         <item>@string/explorer_shopping</item>
+        <item>@string/explorer_art_culture</item>
+        <item>@string/explorer_nature</item>
         <item>@string/explorer_nightlife</item>
         <item>@string/explorer_more</item>
     </string-array>
     <integer-array name="menu_explorer_image">
-        <item>@drawable/ic_close</item>
-        <item>@drawable/ic_close</item>
-        <item>@drawable/ic_compass</item>
-        <item>@drawable/ic_compass</item>
-        <item>@drawable/ic_compass</item>
-        <item>@drawable/ic_compass</item>
-        <item>@drawable/ic_compass</item>
-        <item>@drawable/ic_compass</item>
+        <item>@drawable/must_see</item>
+        <item>@drawable/travelling</item>
+        <item>@drawable/food_drink</item>
+        <item>@drawable/shopping</item>
+        <item>@drawable/art_culture</item>
+        <item>@drawable/nature</item>
+        <item>@drawable/nightlife</item>
+        <item>@drawable/more</item>
     </integer-array>
 </resources>
