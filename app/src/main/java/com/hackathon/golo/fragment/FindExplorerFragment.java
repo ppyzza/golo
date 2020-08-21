@@ -54,6 +54,8 @@ import org.th.tatsdk.search.TATPlacesSearchResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.aprilapps.switcher.Switcher;
+
 public class FindExplorerFragment extends Fragment implements ExplorerContract.View, SearchExploreContract.View {
 
     private Activity mActivity;
@@ -69,20 +71,30 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
     private TATPlacesSearchParameter tatPlacesSearchParameter;
     private ExplorerPresenter mExplorerPresenter;
     private SearchExplorerPresenter mSearchExplorerPresenter;
+    private Switcher mSwitcher;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_explorer, container, false);
 
+        mActivity = getActivity();
+        mRecyclerView = rootView.findViewById(R.id.content_recyclerview);
+
+//        mSwitcher = new Switcher.Builder(mActivity)
+//                .addProgressView(rootView.findViewById(R.id.loading))
+//                .addContentView(rootView.findViewById(R.id.content_recyclerview)) //content member
+//                .addEmptyView(rootView.findViewById(R.id.notfound)) //content member
+//                .build();
+
         titleArray = getResources().getStringArray(R.array.menu_explorer_text);
         imageArray = getResources().obtainTypedArray(R.array.menu_explorer_image);
 
-        mActivity = getActivity();
+        //mSwitcher.showProgressView();
+
         TATSDKEnvironment.setEnvironment(apiKey, mActivity);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(mActivity);
 
-        mRecyclerView = rootView.findViewById(R.id.content_recyclerview);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setNestedScrollingEnabled(false);
@@ -93,16 +105,6 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
         listExplorer = new ArrayList<>();
 
         mainExplorerModelArrayList = new ArrayList<>();
-
-        for (int i = 0; i < titleArray.length; i++) {
-            Explorer explorer = new Explorer();
-            explorer.setImage(imageArray.getResourceId(i, 0));
-            explorer.setTitle(titleArray[i]);
-
-            listExplorer.add(explorer);
-        }
-
-        MainExplorerModel mainExplorerModel = new MainExplorerModel();
 
         mSearchExplorerPresenter = new SearchExplorerPresenter(this);
         mSearchExplorerPresenter.getSearchContents();
@@ -121,7 +123,6 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
                 .withListener(new MultiplePermissionsListener() {
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-                        Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
                         if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                             // TODO: Consider calling
                             //    ActivityCompat#requestPermissions
@@ -138,6 +139,7 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
                                 getTAT(location.getLatitude(), location.getLongitude());
                             }
                         });
+
                     }
 
                     @Override
@@ -153,6 +155,7 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
     }
 
     private void getTAT(double latitude, double longitude) {
+
         TATGeolocation tatLocation = new TATGeolocation(latitude, longitude);
         tatPlacesSearchParameter = new TATPlacesSearchParameter(tatLocation, TATLanguage.THAI);
         // tatPlacesSearchParameter.setNumberOfResult(10);
@@ -189,7 +192,7 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
 
                 mainExplorerModelArrayList.add(mainExplorerModel);
                 setAdaptor();
-
+//                mSwitcher.showContentView();
 
             }
 
@@ -204,6 +207,7 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
         mAdapter = new MainExplorerAdaptor(mActivity, mActivity, mainExplorerModelArrayList);
 
         mRecyclerView.setAdapter(mAdapter);
+        // mSwitcher.showContentView();
     }
 
     @Override
