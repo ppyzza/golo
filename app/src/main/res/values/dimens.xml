@@ -11,6 +11,7 @@
     <dimen name="activity_vertical_7">7dp</dimen>
     <dimen name="activity_vertical_1">1dp</dimen>
     <dimen name="activity_vertical_40">40dp</dimen>
+    <dimen name="activity_vertical_16">16dp</dimen>
     <dimen name="activity_vertical_265">265dp</dimen>
     <!--
     Because the window insets on round devices are larger than 15dp, this padding only applies

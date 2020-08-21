@@ -1,4 +1,4 @@
-package com.hackathon.golo.myplan;
+package com.hackathon.golo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.hackathon.golo.R;
+import com.hackathon.golo.myplan.TabPageAdapter;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,7 @@ public class MultipleActivity extends Fragment {
     ViewPager viewPager;
     private Activity mActivity;
     private ArrayList<String> categoryList = new ArrayList<>();
-    private PagerPageAdapter adapter;
+    private TabPageAdapter adapter;
     private String titleArray[];
 
     public MultipleActivity() {
@@ -56,7 +57,7 @@ public class MultipleActivity extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        titleArray = getResources().getStringArray(R.array.menu_explorer_text);
+        titleArray = getResources().getStringArray(R.array.menu_coupon);
 
         for (int i = 0; i < titleArray.length; i++) {
             categoryList.add(titleArray[i]);
@@ -68,7 +69,7 @@ public class MultipleActivity extends Fragment {
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        adapter = new PagerPageAdapter(getChildFragmentManager(), tabLayout.getTabCount());
+        adapter = new TabPageAdapter(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(1);
 
