@@ -3,7 +3,7 @@
     package="com.hackathon.golo">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -15,17 +15,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".SignIn"
+            android:theme="@style/MTheme.NoActionBar" />
+        <activity
+            android:name=".CreateAccount"
+            android:theme="@style/MTheme.NoActionBar" />
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/MTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
         <activity
             android:name=".MainTabActivity"
-            android:label="@string/title_activity_multiple"></activity>
+            android:label="@string/title_activity_multiple" />
         <activity
             android:name=".normalactivity.PlanningActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ActivityEmptyWithBackToolBar"
             android:label="@string/app_name"
@@ -33,13 +47,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".normalactivity.ExplorerDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -48,6 +56,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".PromotionDetailActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".LocalGuideActivity"
             android:theme="@style/AppTheme" />
     </application>
 
