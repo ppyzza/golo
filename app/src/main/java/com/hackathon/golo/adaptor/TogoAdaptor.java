@@ -41,6 +41,8 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(offersArrayList.get(position).getTitle());
         holder.tvDesc.setText(offersArrayList.get(position).getDescription());
+        holder.tvPeriod.setText(offersArrayList.get(position).getPeriod());
+        holder.tvBy.setText((offersArrayList.get(position).getBy()));
         // Glide.with(mContext).load(offersArrayList.get(position)).into(holder.ivOffers);
 
     }
@@ -70,6 +72,7 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
         TextView tvDesc;
         ImageView ivOffers;
         TextView tvPeriod;
+        TextView tvBy;
 
         ViewHolder(View view) {
             super(view);
@@ -77,6 +80,7 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
             tvDesc = view.findViewById(R.id.tv_desc);
             ivOffers = view.findViewById(R.id.iv_banner);
             tvPeriod = view.findViewById(R.id.tv_period);
+            tvBy = view.findViewById(R.id.tv_by);
         }
     }
 }

@@ -3,7 +3,7 @@
     package="com.hackathon.golo">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -48,6 +48,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".PromotionDetailActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".LocalGuideActivity"
             android:theme="@style/AppTheme" />
     </application>
 
