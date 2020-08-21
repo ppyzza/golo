@@ -71,7 +71,7 @@
             android:id="@+id/bt_follow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_light"
+            android:background="@drawable/follow_button"
             android:textColor="@android:color/white"
             android:text="Follow"
             android:layout_margin="10dp"/>
