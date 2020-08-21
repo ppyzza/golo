@@ -82,7 +82,7 @@ public class MainExplorerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         layoutManager = new GridLayoutManager(mContext, 1, GridLayoutManager
                 .HORIZONTAL, false);
 
-        RecyclerView.Adapter adapter = new OffersAdaptor(mContext, mainExplorerModel.getExplorerArrayList());
+        RecyclerView.Adapter adapter = new OffersAdaptor(mContext, mainExplorerModel.getOffersArrayList());
         promotionHolder.mRecyclerView.setLayoutManager(layoutManager);
         promotionHolder.mRecyclerView.addItemDecoration(new ItemDecorator(mActivity));
 
