@@ -62,35 +62,26 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
+                    android:background="#F6F7F8"
                     android:orientation="vertical"
-                    android:padding="15dp">
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp">
 
-                    <RelativeLayout
+                    <include
+                        layout="@layout/item_add_here_blue"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp">
+                        android:layout_height="wrap_content" />
 
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/floatingActionButton"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:clickable="true"
-                            android:src="@mipmap/ic_add"
-                            app:backgroundTint="@color/colorPrimary" />
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:background="#00FFFFFF" />
 
-                        <TextView
-                            android:id="@+id/textView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@id/floatingActionButton"
-                            android:paddingStart="10dp"
-                            android:text="@string/planning_add_here"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
+                    <include
+                        layout="@layout/item_planning_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                 </LinearLayout>
 

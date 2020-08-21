@@ -39,4 +39,10 @@
     <string name="planning_destination">Chiang Mai 2020</string>
     <string name="planning_add_here">Add Here</string>
 
+<!--    TODO delete-->
+    <string name="planning_item_location">Pong Yang Adventure Park Experience</string>
+    <string name="planning_item_score">4.4</string>
+    <string name="planning_item_review">(67 Reviews) | 1.5 km from here</string>
+
+
 </resources>
