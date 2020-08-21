@@ -9,12 +9,12 @@ public class PlanModel {
     public String to;
     public Double lat;
     public Double lon;
-    public Map<String, Object> dateRange;
+    public Map<String, PlaningModel> dateRange;
 
     public PlanModel() {
     }
 
-    public PlanModel(String planName, String destinationName, String from, String to, Double lat, Double lon, Map<String, Object> dateRange) {
+    public PlanModel(String planName, String destinationName, String from, String to, Double lat, Double lon, Map<String, PlaningModel> dateRange) {
         this.planName = planName;
         this.destinationName = destinationName;
         this.from = from;
