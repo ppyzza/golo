@@ -11,6 +11,8 @@
     <string name="explorer_travelling">Travelling</string>
     <string name="explorer_food_drink">Food&amp;Drink</string>
     <string name="explorer_shopping">Shopping</string>
+    <string name="explorer_art_culture">Art&amp;Culture</string>
+    <string name="explorer_nature">Nature</string>
     <string name="explorer_nightlife">Nightlife</string>
     <string name="explorer_more">More</string>
     <string name="item_text">Reviews</string>
