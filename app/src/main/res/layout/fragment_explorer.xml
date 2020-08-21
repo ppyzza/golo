@@ -4,7 +4,20 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     >
-
+    <include
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activity_loading"
+        android:visibility="gone"
+        />
+    <include
+        android:id="@+id/notfound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activity_datanotfound"
+        android:visibility="gone"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content_recyclerview"
         android:layout_width="match_parent"
