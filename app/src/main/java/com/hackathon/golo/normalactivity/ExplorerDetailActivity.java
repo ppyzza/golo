@@ -45,7 +45,7 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
 
 
         mSwitcher.showProgressView();
-        
+
         mBundle = getIntent().getExtras();
         placeId = mBundle.getString("placeId" ,"");
 
