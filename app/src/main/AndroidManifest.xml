@@ -30,7 +30,7 @@
             android:value="true" />
 
         <activity
-            android:name=".MultipleActivity"
+            android:name=".MainTabActivity"
             android:label="@string/title_activity_multiple"></activity>
         <activity
             android:name=".normalactivity.PlanningActivity"
