@@ -43,10 +43,16 @@
                 android:textColor="#2c85ff" />
 
         </LinearLayout>
-
     </LinearLayout>
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:src="@color/common_google_signin_btn_text_dark_disabled"></ImageView>
+        android:layout_height="match_parent">
+        <ImageView
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@color/common_google_signin_btn_text_dark_disabled">
+
+        </ImageView>
+    </RelativeLayout>
 </LinearLayout>

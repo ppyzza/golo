@@ -41,7 +41,6 @@
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_nav_menu" />
 
-    <include
-        android:visibility="gone"
+    <include android:visibility="gone"
         layout="@layout/item_create_option"/>
 </RelativeLayout>
