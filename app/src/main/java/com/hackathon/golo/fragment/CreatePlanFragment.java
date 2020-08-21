@@ -28,6 +28,7 @@ import com.hackathon.golo.ActivityEmptyWithBackToolBar;
 import com.hackathon.golo.MainActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.PlanModel;
+import com.hackathon.golo.normalactivity.ToolBarWithBack;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,7 +64,8 @@ public class CreatePlanFragment extends Fragment {
                 childUpdates.put("/" + key, planModel);
                 mPlanRef.updateChildren(childUpdates);
 
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), ToolBarWithBack.class);
+                intent.putExtra("planId", key);
                 startActivity(intent);
 
             }
