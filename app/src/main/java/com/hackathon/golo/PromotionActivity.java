@@ -46,10 +46,6 @@ public class PromotionActivity extends AppCompatActivity implements PromotionCon
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
 
-    private String getUid() {
-        return "userid-1";
-    }
-
     @Override
     public void showPromotionSuccess(ArrayList<Promotion> promotion) {
         promotionList = new ArrayList<>();

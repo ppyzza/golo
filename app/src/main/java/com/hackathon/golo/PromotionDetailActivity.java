@@ -28,6 +28,9 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         TextView tvName = findViewById(R.id.tv_name_coupon);
         TextView tvDescription = findViewById(R.id.tv_description_coupon);
+        TextView tvDetail = findViewById(R.id.tv_detail);
+        TextView tvSumPoint = findViewById(R.id.tv_sum_point);
+        tvSumPoint.setLayoutDirection();
         mRecyclerView.setLayoutManager(mLayoutManager);
     }
 

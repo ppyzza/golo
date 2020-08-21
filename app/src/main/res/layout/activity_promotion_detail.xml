@@ -71,7 +71,6 @@
 
             <include
                 layout="@layout/item_count"
-
                 />
 
             <LinearLayout
