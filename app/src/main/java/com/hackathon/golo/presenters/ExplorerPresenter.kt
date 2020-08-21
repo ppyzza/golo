@@ -3,6 +3,7 @@ package com.hackathon.golo.presenters
 import com.hackathon.golo.contract.ExplorerContract
 import com.hackathon.golo.model.TravelMate
 import com.hackathon.golo.models.ExplorerModels
+import java.util.ArrayList
 
 class ExplorerPresenter (private val mView: ExplorerContract.View) : ExplorerContract.Presenter {
 
@@ -25,7 +26,7 @@ class ExplorerPresenter (private val mView: ExplorerContract.View) : ExplorerCon
 
     }
 
-    override fun dataTravelMates(travelMate: List<TravelMate>?) {
+    override fun dataTravelMates(travelMate: ArrayList<TravelMate>?) {
         mView.showTrendingPlaceSuccess(travelMate)
     }
 }

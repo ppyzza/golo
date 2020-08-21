@@ -5,6 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -18,15 +19,16 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/ic_compass"
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:id="@+id/iv_suggest"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                app:civ_border_width="2dp"
                 android:layout_marginTop="@dimen/normal_margin"
                 android:layout_marginBottom="@dimen/activity_vertical_four"
-                />
-
+                app:civ_border_color="#00000000"/>
             <ImageView
                 android:layout_marginTop="@dimen/activity_vertical_eight"
                 android:layout_marginEnd="@dimen/activity_vertical_eight"
@@ -64,6 +66,15 @@
             android:gravity="center"
             android:layout_marginBottom="@dimen/activity_vertical_eight"
             />
+
+        <Button
+            android:id="@+id/bt_follow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:text="Follow"
+            android:layout_margin="10dp"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

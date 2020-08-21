@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_my_plans"
-        android:name="com.hackathon.golo.fragment.MyPlansFragment"
+        android:name="com.hackathon.golo.myplan.MyPlanMultipleTabFragment"
         android:label="@string/title_my_plans"
         tools:layout="@layout/fragment_my_plans" />
 

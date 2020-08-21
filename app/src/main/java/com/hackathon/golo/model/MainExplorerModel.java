@@ -27,6 +27,24 @@ public class MainExplorerModel {
     }
 
     private ArrayList<SearchResult> searchResultArrayList;
+    private ArrayList<TravelMate> travelMateArrayList;
+    private ArrayList<Offers> offersArrayList;
+
+    public ArrayList<Offers> getOffersArrayList() {
+        return offersArrayList;
+    }
+
+    public void setOffersArrayList(ArrayList<Offers> offersArrayList) {
+        this.offersArrayList = offersArrayList;
+    }
+
+    public ArrayList<TravelMate> getTravelMateArrayList() {
+        return travelMateArrayList;
+    }
+
+    public void setTravelMateArrayList(ArrayList<TravelMate> travelMateArrayList) {
+        this.travelMateArrayList = travelMateArrayList;
+    }
 
     public String getTitle() {
         return title;

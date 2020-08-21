@@ -6,7 +6,6 @@ import com.hackathon.golo.service.ApiInterface
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import java.lang.NullPointerException
 
 class ExplorerModels (private val mPresenter: ExplorerContract.Presenter) : ExplorerContract.Model {
 
@@ -25,7 +24,7 @@ class ExplorerModels (private val mPresenter: ExplorerContract.Presenter) : Expl
                 .subscribeOn(Schedulers.io()).subscribe({ data ->
                     mPresenter.dataTravelMates(data)
                 }, { error->
-
+                    error.message
                 })
         mCompositeDisposable.add(d)
 
