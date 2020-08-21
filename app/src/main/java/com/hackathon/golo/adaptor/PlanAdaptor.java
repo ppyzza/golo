@@ -1,18 +1,15 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.hackathon.golo.LocalGuideActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Locals;
 
@@ -20,12 +17,12 @@ import com.hackathon.golo.model.Locals;
 import java.util.ArrayList;
 
 
-public class LocalListAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class PlanAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context mContext;
     ArrayList<Locals> locals;
 
-    public LocalListAdaptor(Context context, ArrayList<Locals> explorers) {
+    public PlanAdaptor(Context context, ArrayList<Locals> explorers) {
         mContext = context;
         locals = explorers;
     }
@@ -60,7 +57,7 @@ public class LocalListAdaptor extends RecyclerView.Adapter<RecyclerView.ViewHold
     private void initTopLocalHolder(TopLocalHolder topLocalHolder, Locals locals) {
         topLocalHolder.tvTitle.setText(locals.getLocalDetail().getName());
         topLocalHolder.tvDesc.setText("("+locals.getLocalDetail().getPlanReview()+" reviews) | "+locals.getLocalDetail().getDistance()+" km from here");
-        topLocalHolder.tvPrice.setText(locals.getLocalDetail().getPrice()+"");
+        topLocalHolder.tvPrice.setText(locals.getLocalDetail().getPrice()+" Bath / Person");
     }
 
     private void initPlanHolder(PlanHolder planHolder, Locals locals) {
