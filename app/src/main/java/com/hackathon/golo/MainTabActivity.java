@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.hackathon.golo.myplan.MultipleActivity;
 
 public class MainTabActivity extends AppCompatActivity {
 
