@@ -14,7 +14,7 @@
       android:minHeight="?attr/actionBarSize"
       android:theme="?attr/actionBarTheme"
       app:contentInsetStartWithNavigation="50dp"
-      app:navigationIcon="@drawable/ic_action_name">
+      app:navigationIcon="@drawable/ic_back_white">
 
     <RelativeLayout
         android:layout_width="match_parent"
