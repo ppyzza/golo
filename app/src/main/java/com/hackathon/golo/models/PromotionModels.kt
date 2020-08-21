@@ -18,7 +18,7 @@ class PromotionModels (private val mPresenter: PromotionContract.Presenter) : Pr
     }
 
     override fun getPromotion() {
-        apiInterface = mApiClient!!.promotionList
+        apiInterface = mApiClient!!.promotion
         val observable = apiInterface!!.promotion
         val d = observable.observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io()).subscribe({ data ->
@@ -28,5 +28,17 @@ class PromotionModels (private val mPresenter: PromotionContract.Presenter) : Pr
                 })
         mCompositeDisposable.add(d)
 
+    }
+
+    override fun getPromotionDetail() {
+        apiInterface = mApiClient!!.promotion
+        val observable = apiInterface!!.promotionDetail
+        val d = observable.observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io()).subscribe({ data ->
+                    mPresenter.dataPromotion(data)
+                }, { error->
+                    error.message
+                })
+        mCompositeDisposable.add(d)
     }
 }
