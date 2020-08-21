@@ -1,6 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="3"
+        android:background="@color/colorPrimary">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="@dimen/activity_vertical_four"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:src="@drawable/my_profile"
+            app:civ_border_color="#00000000"
+            app:civ_border_width="2dp"
+            android:layout_weight="0.5"/>
+
+        <LinearLayout
+            android:id="@+id/ln_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fah Tananun"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 Plans | "
+                    android:textColor="#fff" />
+
+                <TextView
+                    android:id="@+id/tv_reviewer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_plan"
+                    android:text="131 Reviewer"
+                    android:textColor="#fff" />
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="900 Points"
+                android:textColor="#ffd322" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_white"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl_counter_activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="3"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:id="@+id/rl_follower"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_qtyFollower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/tv_follower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_qtyFollower"
+                android:text="Followers"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_followings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_qtyFollowings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="#fff" />
+
+            <TextView
+                android:id="@+id/tv_followings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_qtyFollowings"
+                android:text="Followings"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_qtySaved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="88"
+                android:textSize="18sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_saved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_qtySaved"
+                android:text="Saved"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tab_layout"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="#1f65e0"
+        app:tabSelectedTextColor="@color/colorWhite"
+        app:tabBackground="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorWhite"
+        >
+
+        <!--android:background="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorWhite" -->
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/rl_tab"/>
 </LinearLayout>
