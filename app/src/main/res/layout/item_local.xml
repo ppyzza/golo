@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/rl_local"
+    >
     <include
         android:id="@+id/loading"
         android:layout_width="match_parent"
@@ -68,6 +70,7 @@
                         android:ellipsize="end"
                         android:maxLines="2"
                         android:text="title"
+                        android:textStyle="bold"
                         android:textColor="#010c1f"
                         android:textSize="14sp" />
 
@@ -75,12 +78,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_rating"
+                            android:text="4.7"
+                            android:drawableStart="@drawable/ic_star"
+                            android:layout_marginStart="@dimen/normal_margin"
+                            android:layout_marginTop="@dimen/normal_margin"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:textSize="14sp"
+                            android:drawablePadding="@dimen/activity_vertical_four"
+                            android:textColor="#ffd322"
+                            />
                         <TextView
                             android:id="@+id/tv_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/activity_vertical_eight"
+                            android:layout_marginStart="@dimen/activity_vertical_four"
                             android:layout_marginTop="@dimen/normal_margin"
                             android:drawablePadding="@dimen/activity_vertical_four"
                             android:ellipsize="end"
@@ -94,9 +110,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1,900 Points"
-                        android:textColor="#6bc059"
+                        android:text="1,080 THB"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:layout_marginTop="@dimen/activity_vertical_eight"
                         android:layout_marginStart="@dimen/normal_margin"
                         android:layout_marginEnd="@dimen/normal_margin"

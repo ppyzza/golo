@@ -41,7 +41,7 @@ public class AccountFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         data.add("Plans");
-        data.add("Local Plans");
+        data.add("Local Guides");
         data.add("Reviews");
 
         for (int i = 0; i < data.size(); i++) {

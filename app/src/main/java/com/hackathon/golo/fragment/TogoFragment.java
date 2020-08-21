@@ -30,7 +30,7 @@ public class TogoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_explorer, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_explorer_search, container, false);
 
         mActivity = getActivity();
         Togo togo = new Togo();

@@ -54,9 +54,10 @@
 
 
                 <LinearLayout
+                    android:id="@+id/rl_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/iv_trending_like"
+                    android:layout_marginBottom="@dimen/activity_vertical_eight"
                     android:orientation="vertical">
 
                     <TextView
@@ -80,7 +81,7 @@
                             android:id="@+id/tv_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/activity_vertical_eight"
+                            android:layout_marginStart="@dimen/normal_margin"
                             android:layout_marginTop="@dimen/normal_margin"
                             android:drawablePadding="@dimen/activity_vertical_four"
                             android:ellipsize="end"
@@ -102,6 +103,7 @@
 
                         />
                     <TextView
+                        android:id="@+id/tv_by"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Bangkok"
@@ -109,13 +111,19 @@
                         android:layout_marginTop="@dimen/activity_vertical_eight"
                         android:layout_marginStart="@dimen/normal_margin"
                         android:layout_marginEnd="@dimen/normal_margin"
-
+                        android:layout_marginBottom="@dimen/activity_vertical_eight"
                         />
                 </LinearLayout>
-
                 <View
+                    android:layout_below="@+id/rl_title"
+                    android:id="@+id/view_title"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:background="#d5d7db" />
+                <View
+                    android:layout_below="@+id/view_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
                     android:layout_alignParentBottom="true"
                     android:background="#d5d7db" />
             </RelativeLayout>

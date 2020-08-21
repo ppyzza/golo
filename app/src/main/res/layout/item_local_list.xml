@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:src="@mipmap/pic_no_image"
+        android:id="@+id/iv_banner"
+        android:layout_width="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_height="120dp" />
+    <LinearLayout
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_banner"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="title"
+            android:textColor="#010c1f"
+            android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_trending_thumb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:src="@drawable/ic_heart" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:drawablePadding="@dimen/activity_vertical_four"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="(67 reviews) | 15 km from here"
+                android:textColor="#8792a0"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_height="wrap_content">
+        <include
+            layout="@layout/item_count"
+        />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1,080 Bath / Person"
+            android:textColor="#2c85ff"
+            android:textSize="16sp"
+            android:layout_marginTop="@dimen/activity_vertical_eight"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/normal_margin"
+        android:layout_below="@+id/view_title"
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="3"
+        android:background="@color/colorWhite">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="@dimen/activity_vertical_four"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:src="@drawable/profile_follow"
+            app:civ_border_color="#00000000"
+            app:civ_border_width="2dp"
+            android:layout_weight="0.5"/>
+
+        <LinearLayout
+            android:id="@+id/ln_information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ko Moonyung"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_plan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3 Plans | "
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/tv_reviewer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_plan"
+                    android:text="1 Reviewer"
+                    android:textColor="@color/colorPrimary" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Follow"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_blue"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>
