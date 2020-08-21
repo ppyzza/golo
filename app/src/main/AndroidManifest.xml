@@ -31,6 +31,9 @@
         <activity android:name=".PromotionActivity"
             android:theme="@style/AppTheme"
             />
+        <activity android:name=".PromotionDetailActivity"
+            android:theme="@style/AppTheme"
+            />
     </application>
 
 </manifest>

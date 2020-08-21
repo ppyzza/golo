@@ -1,12 +1,15 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hackathon.golo.PromotionActivity;
+import com.hackathon.golo.PromotionDetailActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Promotion;
 import com.hackathon.golo.model.SearchResult;
@@ -42,6 +45,13 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
         holder.tvDesc.setText(promotionArrayList.get(position).getDescription());
         holder.tvType.setText(promotionArrayList.get(position).getTypeCampaign());
         holder.tvPoint.setText(promotionArrayList.get(position).getPoint());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, PromotionDetailActivity.class);
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -63,6 +73,7 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
     }
 
     final class ViewHolder extends RecyclerView.ViewHolder {
+
         ImageView imageView;
         TextView tvName;
         TextView tvDesc;

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/toolbar_promotion_detail" />
+    <ScrollView
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/iv_image"
+        android:id="@+id/layout_title"
+        android:weightSum="3"
+        >
+        <LinearLayout
+            android:layout_below="@+id/image_coupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:orientation="horizontal"
+            android:id="@+id/layout_tv_name_coupon"
+            android:layout_marginTop="@dimen/activity_vertical_20"
+            android:weightSum="2">
+            <TextView
+                android:id="@+id/tv_name_coupon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@drawable/ic_heart"
+                android:text="Boston Lobster"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_below="@+id/layout_tv_name_coupon"
+            android:id="@+id/tv_description_coupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_4"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_below="@+id/tv_description_coupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_4"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <include
+                layout="@layout/item_count"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/normal_margin"
+                android:layout_marginRight="@dimen/normal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_4"
+                android:orientation="vertical"
+                android:weightSum="2"
+                >
+                <TextView
+                    android:id="@+id/tv_point_coupon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end
+"
+                    android:layout_weight="2"
+                    android:text="800 point"
+                    android:textAlignment="textEnd"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end
+"
+                    android:layout_weight="2"
+                    android:text="From 1000 points"
+                    android:textAlignment="textEnd"
+                    android:textColor="#ff0000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/layout_voucher_detail"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:paddingLeft="@dimen/normal_margin"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textSize="@dimen/activity_vertical_20"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#f6f7f8"
+            android:paddingTop="@dimen/activity_vertical_10"
+            android:paddingBottom="@dimen/activity_vertical_10"
+            android:text="Voucher Detail" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/layout_voucher_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layout_detail"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tv_detail"
+            android:paddingLeft="@dimen/normal_margin"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+    </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_alignParentBottom="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/activity_vertical_10"
+            android:paddingRight="@dimen/activity_vertical_10"
+            android:paddingTop="@dimen/activity_vertical_7"
+            android:paddingBottom="@dimen/activity_vertical_7"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:id="@+id/layout_sum_point"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/activity_vertical_10">
+
+                <TextView
+                    android:id="@+id/tv_sum_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="800 point"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_your_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From 1000 points"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Redeem"
+                android:textColor="@color/colorWhite"
+                android:background="#2c84ff"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
