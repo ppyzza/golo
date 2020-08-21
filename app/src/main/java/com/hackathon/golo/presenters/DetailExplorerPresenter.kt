@@ -21,5 +21,8 @@ class DetailExplorerPresenter (private val mView: DetailExplorerContract.View) :
         mModel.getPlaceDetail(placeId);
     }
 
+    override fun show404Notfound() {
+        mView.show404Notfound()
+    }
 
 }

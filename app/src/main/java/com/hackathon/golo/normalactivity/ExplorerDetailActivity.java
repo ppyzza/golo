@@ -17,6 +17,8 @@ import com.hackathon.golo.model.placedetail.Location;
 import com.hackathon.golo.model.placedetail.PlaceResponse;
 import com.hackathon.golo.presenters.DetailExplorerPresenter;
 
+import pl.aprilapps.switcher.Switcher;
+
 public class ExplorerDetailActivity extends AppCompatActivity implements DetailExplorerContract.View {
 
     DetailExplorerPresenter mDetailExplorerPresenter;
@@ -25,19 +27,29 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
     private TextView tvTitle, tvLocation, tvDetail;
     private Bundle mBundle;
     private String placeId;
+    private Switcher mSwitcher;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explorer_detail);
+        mActivity = ExplorerDetailActivity.this;
+        mSwitcher = new Switcher.Builder(mActivity)
+                .addProgressView(findViewById(R.id.loading))
+                .addContentView(findViewById(R.id.sv1)) //content member
+                .addEmptyView(findViewById(R.id.notfound)) //content member
+                .build();
 
+
+        mSwitcher.showProgressView();
+        
         mBundle = getIntent().getExtras();
         placeId = mBundle.getString("placeId" ,"");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mActivity = ExplorerDetailActivity.this;
+
         ivBanner = findViewById(R.id.iv_banner);
         ivThumb = findViewById(R.id.iv_trending_thumb);
         tvTitle = findViewById(R.id.tv_title);
@@ -51,12 +63,18 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
 
     @Override
     public void showPlaceDetail(PlaceResponse placeResponse) {
+
         Glide.with(mActivity).load(placeResponse.getResult().getWebPictureUrls().get(0)).into(ivBanner);
         Glide.with(mActivity).load(placeResponse.getResult().getMobilePictureUrls().get(0)).into(ivThumb);
         tvTitle.setText(placeResponse.getResult().getPlaceName());
         tvDetail.setText(placeResponse.getResult().getPlaceInformation().getDetail());
         Location loc = placeResponse.getResult().getLocation();
         tvLocation.setText(loc.getAddress()+" "+loc.getSubDistrict()+" "+loc.getDistrict()+" "+loc.getProvince()+" "+loc.getPostcode());
+        mSwitcher.showContentView();
+    }
 
+    @Override
+    public void show404Notfound() {
+        mSwitcher.showEmptyView();
     }
 }

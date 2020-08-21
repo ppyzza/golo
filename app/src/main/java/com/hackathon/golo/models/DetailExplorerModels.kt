@@ -28,6 +28,7 @@ class DetailExplorerModels (private val mPresenter: DetailExplorerContract.Prese
                     mPresenter.dataPlaceDetail(data)
                 }, { error->
                     error.message
+                    mPresenter.show404Notfound()
                 })
         mCompositeDisposable.add(d)
     }
