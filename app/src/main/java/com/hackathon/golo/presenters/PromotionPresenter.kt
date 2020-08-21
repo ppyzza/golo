@@ -1,7 +1,9 @@
 package com.hackathon.golo.presenters
 
 import com.hackathon.golo.contract.PromotionContract
+import com.hackathon.golo.model.Campaign
 import com.hackathon.golo.model.Promotion
+import com.hackathon.golo.model.RedeemRequest
 import com.hackathon.golo.models.PromotionModels
 import java.util.*
 
@@ -18,6 +20,15 @@ class PromotionPresenter(private val mView: PromotionContract.View) : PromotionC
         mModel.getPromotion()
     }
 
+    override fun dataRedeemError() {
+        mView.showRedeemFail()
+    }
+
+    override fun redeem(request: RedeemRequest) {
+
+        mModel.redeem(request)
+    }
+
     override fun getPromotionDetail() {
         mModel.getPromotionDetail()
     }
@@ -28,5 +39,9 @@ class PromotionPresenter(private val mView: PromotionContract.View) : PromotionC
 
     override fun dataPromotionDetail(promotion: ArrayList<Promotion>?) {
         mView.showPromotionDetailSuccess(promotion)
+    }
+
+    override fun dataRedeem(redeem: Campaign?) {
+        mView.showRedeemSuccess(redeem)
     }
 }
