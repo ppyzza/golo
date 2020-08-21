@@ -68,6 +68,15 @@ public class LocalDetail {
     private int plans;
     private int review;
     private String price;
+    private String detail;
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
 
     public String getPrice() {
         return price;
