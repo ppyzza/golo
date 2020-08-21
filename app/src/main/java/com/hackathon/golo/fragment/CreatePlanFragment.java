@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +42,9 @@ public class CreatePlanFragment extends Fragment {
         FirebaseApp.initializeApp(rootView.getContext());
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference mPlanRef = mRootRef.child("plan/" + getUid());
+
+        SwitchMaterial keep_this_plan_public_switch = rootView.findViewById(R.id.keep_this_plan_public_switch);
+        SwitchMaterial publish_as_itineraries_switch = rootView.findViewById(R.id.publish_as_itineraries_switch);
 
         startPlanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +85,7 @@ public class CreatePlanFragment extends Fragment {
                 edtStartEnd.getEditText().setText(from[0] + " - " + to[0]);
             }
         });
+
         return rootView;
     }
 

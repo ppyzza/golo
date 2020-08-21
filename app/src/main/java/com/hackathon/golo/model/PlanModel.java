@@ -7,6 +7,7 @@ public class PlanModel {
     public String to;
     public Double lat;
     public Double lon;
+    public Boolean keepThisPlanPublicSwitch;
 
     public PlanModel() {
     }

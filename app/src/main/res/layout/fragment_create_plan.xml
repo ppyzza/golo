@@ -18,7 +18,8 @@
             android:layout_marginTop="@dimen/activity_vertical_twele"
             android:layout_marginBottom="@dimen/activity_vertical_twele"
             android:text="Trip Name"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -34,7 +35,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rl_trip_name"
             android:layout_marginStart="@dimen/normal_margin"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="@dimen/normal_margin"
@@ -63,7 +63,8 @@
             android:layout_marginTop="@dimen/activity_vertical_twele"
             android:layout_marginBottom="@dimen/activity_vertical_twele"
             android:text="Destination"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -71,10 +72,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rl_destination"
-        android:layout_marginStart="10px"
-        android:layout_marginTop="10px"
-        android:layout_marginEnd="10px"
-        android:layout_marginBottom="10px"
         android:background="#ffffff">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -115,6 +112,102 @@
                 android:layout_marginBottom="@dimen/normal_margin" />
 
         </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_visibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_destination_tf"
+        android:background="#f6f7f8">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_twele"
+            android:layout_marginBottom="@dimen/activity_vertical_twele"
+            android:text="Visibility"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_visibility_1"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/rl_visibility"
+        android:background="#ffffff"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingEnd="@dimen/normal_margin">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keep this plan public" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+10 Points"
+                android:textColor="#FFD322"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/keep_this_plan_public_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:enabled="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_visibility_2"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@+id/rl_visibility_1"
+        android:background="#ffffff"
+        android:paddingStart="@dimen/normal_margin"
+        android:paddingEnd="@dimen/normal_margin">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish as Itineraries" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+20 Points"
+                android:textColor="#FFD322"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/publish_as_itineraries_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:enabled="true" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
