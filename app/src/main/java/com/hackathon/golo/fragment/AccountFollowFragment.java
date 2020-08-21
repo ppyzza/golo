@@ -1,6 +1,7 @@
 package com.hackathon.golo.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class AccountFollowFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_account_follow, container, false);
         tabLayout = rootView.findViewById(R.id.tab_layout);
         viewPager = rootView.findViewById(R.id.pager);
-
+        Log.i("tag", "Touch In!");
         return rootView;
     }
 

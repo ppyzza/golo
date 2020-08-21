@@ -1,12 +1,15 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hackathon.golo.AccountFollowDetailActivity;
 import com.hackathon.golo.R;
 
 import com.hackathon.golo.model.TravelMate;
@@ -48,11 +52,20 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.tvTitle.setText(travelMateArrayList.get(position).getName());
         holder.tvDesc.setText(travelMateArrayList.get(position).getDescription());
 
         Glide.with(mContext).load(travelMateArrayList.get(position).getAvatar()).into(holder.ivProfile);
+
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, AccountFollowDetailActivity.class);
+                i.putExtra("fragment", "account_follow");
+                mContext.startActivity(i);
+            }
+        });
 
         holder.btFollow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +79,7 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
 
                         ArrayList<String> userKeyMap = new ArrayList<>();
                         ArrayList<String> userMap = new ArrayList<>();
-                        for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             String name = ds.child("name").getValue(String.class);
                             String key = ds.getKey();
                             //Log.d("FJTAG", "name : " + name + "key : "+ key );
@@ -107,6 +120,7 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
         TextView tvDesc;
         ImageView ivProfile;
         Button btFollow;
+        LinearLayout linearLayout;
 
         ViewHolder(View view) {
             super(view);
@@ -114,6 +128,7 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
             tvDesc = view.findViewById(R.id.tv_desc);
             ivProfile = view.findViewById(R.id.iv_suggest);
             btFollow = view.findViewById(R.id.bt_follow);
+            linearLayout = view.findViewById(R.id.suggestMate);
         }
     }
 }

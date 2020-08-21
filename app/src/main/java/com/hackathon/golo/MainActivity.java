@@ -16,6 +16,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.hackathon.golo.fragment.AccountFollowFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navView;
     private FrameLayout fabFrame;
-    private Boolean fabExpanded = false;
     private LinearLayout layoutCreateNewPlan;
     private LinearLayout layOutLocalGuide;
     private FloatingActionButton fab;
@@ -85,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void closeSubMenusFab() {
@@ -93,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         fab.setVisibility(View.VISIBLE);
         navView.setVisibility(View.VISIBLE);
     }
-
     //Opens FAB submenus
     private void openSubMenusFab() {
         fabFrame.setVisibility(View.VISIBLE);
