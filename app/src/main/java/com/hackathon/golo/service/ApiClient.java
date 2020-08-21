@@ -31,6 +31,7 @@ public class ApiClient {
     private static final String GOLO_HOME = "";
     private static final String TAT_HOME = "https://tatapi.tourismthailand.org";
     private static final String MOCK_API = "https://5f3e5f8c13a9640016a68a1b.mockapi.io/api/v1";
+    private static final String Mock_API_Promotion_List = "https://5f3f886e44212d0016fece97.mockapi.io";
     private Gson mGson;
 
     // public A
@@ -156,5 +157,10 @@ public class ApiClient {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().serializeNulls().create()))
                 .build();
+    }
+
+    public ApiInterface getPromotionList() {
+        return provideRetrofit(Mock_API_Promotion_List, provideClient2())
+                .create(ApiInterface.class);
     }
 }

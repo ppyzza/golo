@@ -4,4 +4,8 @@
     <dimen name="activity_vertical_four">4dp</dimen>
     <dimen name="activity_vertical_eight">8dp</dimen>
     <dimen name="activity_vertical_twele">12dp</dimen>
+    <dimen name="activity_vertical_20">20dp</dimen>
+    <dimen name="activity_vertical_4">4dp</dimen>
+    <dimen name="activity_vertical_1">1dp</dimen>
+    <dimen name="activity_vertical_265">265dp</dimen>
 </resources>
