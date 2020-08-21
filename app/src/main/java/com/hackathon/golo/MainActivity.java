@@ -1,19 +1,12 @@
 package com.hackathon.golo;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.hackathon.golo.model.PlanModel;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -21,16 +14,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.util.Log;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         navView = findViewById(R.id.nav_view);
         fab = findViewById(R.id.fab);
         rl_back = findViewById(R.id.rl_back);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -63,55 +49,16 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        FirebaseApp.initializeApp(this);
-        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mPlanRef = mRootRef.child("plan/" + getUid());
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        mPlanRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Log.d("FJTAG", dataSnapshot.toString());
-//                String value = dataSnapshot.getValue(String.class);`
-//                builder.setCancelable(false);
-//                builder.setMessage(value);
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
-        buttonAction();
-        closeSubMenusFab();
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSubMenusFab();
+                Intent intent = new Intent(MainActivity.this, ActivityEmptyWithBackToolBar.class);
+                intent.putExtra("fragment", "create_plan");
+                startActivity(intent);
             }
         });
-        rl_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                closeSubMenusFab();
-            }
-        });
-        createPlan();
-    }
-
-    private void createPlan() {
-        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference mPlanRef = mRootRef.child("plan/" + getUid());
-        String key = mPlanRef.push().getKey();
-        PlanModel planModel = new PlanModel("ไว้ไปด้วยกันนะ", "1", "2020-08-21", "2020-08-22");
-        Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/" + key, planModel);
-        mPlanRef.updateChildren(childUpdates);
-    }
-
-    private String getUid() {
-        return "userid-1";
     }
 
     private void buttonAction() {
