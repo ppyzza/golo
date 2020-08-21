@@ -11,6 +11,24 @@ public class Promotion {
     private boolean favorite;
     private String typeCampaign;
     private String point;
+    private String voucherDetail;
+    private String redeemCode;
+
+    public String getVoucherDetail() {
+        return voucherDetail;
+    }
+
+    public void setVoucherDetail(String voucherDetail) {
+        this.voucherDetail = voucherDetail;
+    }
+
+    public String getRedeemCode() {
+        return redeemCode;
+    }
+
+    public void setRedeemCode(String redeemCode) {
+        this.redeemCode = redeemCode;
+    }
 
     public boolean isFavorite() {
         return favorite;

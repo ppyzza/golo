@@ -20,4 +20,7 @@ public interface ApiInterface {
     @GET("/promotion")
     Observable<ArrayList<Promotion>> getPromotion();
 
+    @GET("/promotiondetail")
+    Observable<ArrayList<Promotion>> getPromotionDetail();
+
 }

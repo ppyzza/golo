@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_margin"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="@dimen/normal_margin"
             android:hint="Trip Name"
             app:startIconDrawable="@drawable/ic_edit">
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/normal_margin"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="@dimen/normal_margin"
             android:hint="Where are you going?"
             app:startIconDrawable="@drawable/ic_map_pin">
