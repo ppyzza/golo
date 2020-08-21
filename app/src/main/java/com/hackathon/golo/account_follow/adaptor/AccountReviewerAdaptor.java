@@ -1,4 +1,4 @@
-package com.hackathon.golo.accountfollow.adaptor;
+package com.hackathon.golo.account_follow.adaptor;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hackathon.golo.R;
-import com.hackathon.golo.accountfollow.model.AccountPlanModel;
+import com.hackathon.golo.account_follow.model.AccountPlanModel;
 
 import java.util.ArrayList;
 
