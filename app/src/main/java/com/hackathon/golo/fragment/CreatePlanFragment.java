@@ -71,7 +71,7 @@ public class CreatePlanFragment extends Fragment {
 
                 String key = mPlanRef.push().getKey();
                 List<String> dates = getDates(fromFormat[0], toFormat[0]);
-                Map<String, Object> dateRange = new HashMap<>();
+                Map<String, PlaningModel> dateRange = new HashMap<>();
                 for(String date:dates)
                     dateRange.put(date, new PlaningModel());
                 PlanModel planModel = new PlanModel(edtTripName.getEditText().getText().toString(), destinationName, from[0], to[0], lat, lon, dateRange);
