@@ -1,4 +1,4 @@
-package com.hackathon.golo.accountfollow.fragment;
+package com.hackathon.golo.account_follow.fragment;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hackathon.golo.R;
-import com.hackathon.golo.accountfollow.adaptor.AccountPlanLocalAdaptor;
-import com.hackathon.golo.accountfollow.model.AccountPlanModel;
+import com.hackathon.golo.account_follow.adaptor.AccountPlanLocalAdaptor;
+import com.hackathon.golo.account_follow.model.AccountPlanModel;
 
 import java.util.ArrayList;
 

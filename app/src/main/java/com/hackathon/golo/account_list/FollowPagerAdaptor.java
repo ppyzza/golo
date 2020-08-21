@@ -1,23 +1,23 @@
-package com.hackathon.golo.accountfollow;
+package com.hackathon.golo.account_list;
 
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import com.hackathon.golo.accountfollow.fragment.AccountPlanFragment;
-import com.hackathon.golo.accountfollow.fragment.AccountPlanLocalFragment;
-import com.hackathon.golo.accountfollow.fragment.AccountReviewerFragment;
+import com.hackathon.golo.account_follow.fragment.AccountPlanFragment;
+import com.hackathon.golo.account_follow.fragment.AccountPlanLocalFragment;
+import com.hackathon.golo.account_follow.fragment.AccountReviewerFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class AccountPagerAdapter extends FragmentStatePagerAdapter {
+public class FollowPagerAdaptor extends FragmentStatePagerAdapter {
     int mNumOfTabs;
     int tabPosition = 0;
     private SparseArray<Fragment> registeredFragments = new SparseArray<>();
 
-    public AccountPagerAdapter(FragmentManager fm, int NumOfTabs) {
+    public FollowPagerAdaptor(FragmentManager fm, int NumOfTabs) {
         super(fm);
         this.mNumOfTabs = NumOfTabs;
     }
@@ -72,6 +72,4 @@ public class AccountPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getRegisteredFragment(int position) {
         return registeredFragments.get(position);
     }
-
-
 }

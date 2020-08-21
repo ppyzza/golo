@@ -1,4 +1,4 @@
-package com.hackathon.golo.accountfollow.model;
+package com.hackathon.golo.account_follow.model;
 
 public class AccountPlanModel {
 
