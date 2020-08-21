@@ -23,21 +23,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:text="@string/planning_period"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            tools:text="Tue, Sep 01 - Sat, Sep 05" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/planning_destination"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:textStyle="bold"
-            tools:text="Chiang Mai 2020" />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <TabHost
+        android:id="@+id/tab_host"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layout_destination_and_date">
@@ -61,8 +62,37 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical" />
+                    android:background="@color/colorWhite"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:id="@+id/floatingActionButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:clickable="true"
+                            android:src="@mipmap/ic_add"
+                            app:backgroundTint="@color/colorPrimary" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/floatingActionButton"
+                            android:paddingStart="10dp"
+                            android:text="@string/planning_add_here"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/tab2"
