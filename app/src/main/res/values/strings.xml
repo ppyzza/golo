@@ -34,5 +34,9 @@
     <string name="new_plan_trip_name_hint">Trip Name</string>
     <string name="new_plan_trip_start_end_date">Start Date - End Date</string>
     <string name="planning">Planning</string>
+    <string name="create_new_plan">Create New Plan</string>
+    <string name="planning_period">Tue, Sep 01 - Sat, Sep 05</string>
+    <string name="planning_destination">Chiang Mai 2020</string>
+    <string name="planning_add_here">Add Here</string>
 
 </resources>
