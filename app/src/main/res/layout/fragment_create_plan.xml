@@ -70,13 +70,14 @@
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     >
+
     <Button
+        android:id="@+id/startPlanBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Planning"
         android:background="#2c85ff"
-        android:textColor="@android:color/white"
+        android:text="Start Planning"
 
-        />
+        android:textColor="@android:color/white" />
 </RelativeLayout>
 </RelativeLayout>

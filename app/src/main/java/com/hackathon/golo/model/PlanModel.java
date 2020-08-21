@@ -2,26 +2,30 @@ package com.hackathon.golo.model;
 
 public class PlanModel {
     public String planName;
-    public String destinationId;
+    public String destinationName;
     public String from;
     public String to;
+    public Double lat;
+    public Double lon;
 
     public PlanModel() {
     }
 
-    public PlanModel(String planName, String destinationId, String from, String to) {
+    public PlanModel(String planName, String destinationName, String from, String to, Double lat, Double lon) {
         this.planName = planName;
-        this.destinationId = destinationId;
+        this.destinationName = destinationName;
         this.from = from;
         this.to = to;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public String getPlanName() {
         return planName;
     }
 
-    public String getDestinationId() {
-        return destinationId;
+    public String getDestinationName() {
+        return destinationName;
     }
 
     public String getFrom() {
@@ -32,12 +36,20 @@ public class PlanModel {
         return to;
     }
 
+    public Double getLat() {
+        return lat;
+    }
+
+    public Double getLon() {
+        return lon;
+    }
+
     public void setPlanName(String planName) {
         this.planName = planName;
     }
 
-    public void setDestinationId(String destinationId) {
-        this.destinationId = destinationId;
+    public void setDestinationName(String destinationName) {
+        this.destinationName = destinationName;
     }
 
     public void setFrom(String from) {
@@ -46,5 +58,13 @@ public class PlanModel {
 
     public void setTo(String to) {
         this.to = to;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public void setLon(Double lon) {
+        this.lon = lon;
     }
 }
