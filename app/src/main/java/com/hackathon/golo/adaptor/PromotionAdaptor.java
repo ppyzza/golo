@@ -1,12 +1,15 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hackathon.golo.PromotionActivity;
+import com.hackathon.golo.PromotionDetailActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Promotion;
 import com.hackathon.golo.model.SearchResult;
@@ -38,6 +41,13 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.rv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, PromotionDetailActivity.class);
+                mContext.startActivity(i);
+            }
+        });
         holder.tvName.setText(promotionArrayList.get(position).getName());
         holder.tvDesc.setText(promotionArrayList.get(position).getDescription());
         holder.tvType.setText(promotionArrayList.get(position).getTypeCampaign());
@@ -63,14 +73,17 @@ public class PromotionAdaptor extends RecyclerView.Adapter<PromotionAdaptor.View
     }
 
     final class ViewHolder extends RecyclerView.ViewHolder {
+
         ImageView imageView;
         TextView tvName;
         TextView tvDesc;
         TextView tvType;
         TextView tvPoint;
+        RecyclerView rv;
 
         ViewHolder(View view) {
             super(view);
+            rv = view.findViewById(R.id.container);
             tvName = view.findViewById(R.id.tv_name_coupon);
             tvDesc = view.findViewById(R.id.tv_description_coupon);
             tvType = view.findViewById(R.id.tv_type_coupon);
