@@ -1,15 +1,18 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hackathon.golo.LocalGuideActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Togo;
 
@@ -38,9 +41,15 @@ public class LocalAdaptor extends RecyclerView.Adapter<LocalAdaptor.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(offersArrayList.get(position).getTitle());
-        holder.tvDesc.setText(offersArrayList.get(position).getDescription());
+        holder.tvDesc.setText(offersArrayList.get(position).getPeriod());
         // Glide.with(mContext).load(offersArrayList.get(position)).into(holder.ivOffers);
-
+        holder.ivOffers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, LocalGuideActivity.class);
+                mContext.startActivity(i);
+            }
+        });
     }
 
     @Override
@@ -68,6 +77,7 @@ public class LocalAdaptor extends RecyclerView.Adapter<LocalAdaptor.ViewHolder> 
         TextView tvDesc;
         ImageView ivOffers;
         TextView tvPeriod;
+        RelativeLayout rlLocal;
 
         ViewHolder(View view) {
             super(view);
@@ -75,6 +85,7 @@ public class LocalAdaptor extends RecyclerView.Adapter<LocalAdaptor.ViewHolder> 
             tvDesc = view.findViewById(R.id.tv_desc);
             ivOffers = view.findViewById(R.id.iv_banner);
             tvPeriod = view.findViewById(R.id.tv_period);
+            rlLocal = view.findViewById(R.id.rl_local);
         }
     }
 }

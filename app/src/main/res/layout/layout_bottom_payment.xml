@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        android:text="Select Payment Method"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rl_tmn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_payment"
+        android:layout_margin="@dimen/normal_margin"
+        android:background="@drawable/bg_blue_payment">
+
+        <ImageView
+            android:id="@+id/pay_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/activity_vertical_eight"
+            android:src="@mipmap/ic_tmn" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/activity_vertical_eight"
+            android:layout_toEndOf="@+id/pay_icon"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_eight"
+                android:text="TrueMoney Wallet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_eight"
+                android:text="+10 Points"
+                android:textColor="#ffd322" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/activity_vertical_eight"
+            android:src="@mipmap/ic_pin_gray" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_credit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_tmn"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_eight"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:background="@drawable/bg_gray_payment">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/activity_vertical_eight"
+            android:orientation="vertical"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_eight"
+                android:text="1234 12** **** 1121" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_eight"
+                android:text="Credit/Debit Card"
+                android:textColor="#8792a0" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="@dimen/activity_vertical_eight"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:weightSum="2.1"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:layout_below="@+id/rl_credit"
+        >
+        <Button
+            android:id="@+id/bt_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_blue_white"
+            />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            />
+        <Button
+            android:id="@+id/bt_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pay Now"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_blue"
+            />
+    </LinearLayout>
+</RelativeLayout>

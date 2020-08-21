@@ -117,7 +117,7 @@
         >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/location_period_from_to"
             android:paddingLeft="@dimen/normal_margin"
             android:layout_width="match_parent"
             android:textStyle="bold"

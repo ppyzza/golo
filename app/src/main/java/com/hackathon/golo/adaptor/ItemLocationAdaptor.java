@@ -13,44 +13,42 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Offers;
+import com.hackathon.golo.model.PlanList;
 import com.hackathon.golo.model.Togo;
 
 import java.util.ArrayList;
 
 
-public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
+public class ItemLocationAdaptor extends RecyclerView.Adapter<ItemLocationAdaptor.ViewHolder> {
 
     Context mContext;
-    ArrayList<Togo> offersArrayList;
+    ArrayList<PlanList> planListArrayList;
 
-    public TogoAdaptor(Context context, ArrayList<Togo> explorers) {
+    public ItemLocationAdaptor(Context context, ArrayList<PlanList> explorers) {
         mContext = context;
-        offersArrayList = explorers;
+        planListArrayList = explorers;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout
-                .item_todo, null, false);
-        TogoAdaptor.ViewHolder vh = new TogoAdaptor.ViewHolder(view);
+                .item_location_list, null, false);
+        ItemLocationAdaptor.ViewHolder vh = new ItemLocationAdaptor.ViewHolder(view);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTitle.setText(offersArrayList.get(position).getTitle());
-        holder.tvDesc.setText(offersArrayList.get(position).getDescription());
-        holder.tvPeriod.setText(offersArrayList.get(position).getPeriod());
-        holder.tvBy.setText((offersArrayList.get(position).getBy()));
-        // Glide.with(mContext).load(offersArrayList.get(position)).into(holder.ivOffers);
+        holder.tvTitle.setText(planListArrayList.get(position).getPlaceName());
+        holder.tvDesc.setText(""+planListArrayList.get(position).getDistance());
 
     }
 
     @Override
     public int getItemCount() {
-        if(offersArrayList!=null) {
-            return offersArrayList.size();
+        if(planListArrayList!=null) {
+            return planListArrayList.size();
         } else {
             return 0;
         }
@@ -70,17 +68,12 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
 
         TextView tvTitle;
         TextView tvDesc;
-        ImageView ivOffers;
-        TextView tvPeriod;
-        TextView tvBy;
 
         ViewHolder(View view) {
             super(view);
-            tvTitle = view.findViewById(R.id.tv_title);
-            tvDesc = view.findViewById(R.id.tv_desc);
-            ivOffers = view.findViewById(R.id.iv_banner);
-            tvPeriod = view.findViewById(R.id.tv_period);
-            tvBy = view.findViewById(R.id.tv_by);
+            tvTitle = view.findViewById(R.id.location_name);
+            tvDesc = view.findViewById(R.id.review_and_distant);
+
         }
     }
 }
