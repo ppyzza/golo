@@ -10,9 +10,18 @@ public class Promotion {
     private String description;
     private boolean favorite;
     private String typeCampaign;
-    private String point;
+    private Integer point;
     private String voucherDetail;
     private String redeemCode;
+    private Integer pointDiscount;
+
+    public Integer getPointDiscount() {
+        return pointDiscount;
+    }
+
+    public void setPointDiscount(Integer pointDiscount) {
+        this.pointDiscount = pointDiscount;
+    }
 
     public String getVoucherDetail() {
         return voucherDetail;
@@ -82,11 +91,11 @@ public class Promotion {
         this.typeCampaign = typeCampaign;
     }
 
-    public String getPoint() {
+    public Integer getPoint() {
         return point;
     }
 
-    public void setPoint(String point) {
+    public void setPoint(Integer point) {
         this.point = point;
     }
 }

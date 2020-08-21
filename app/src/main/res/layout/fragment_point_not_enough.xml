@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_redeem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_16"
+    android:paddingLeft="@dimen/activity_vertical_16"
+    android:paddingRight="@dimen/activity_vertical_16"
+    android:paddingBottom="@dimen/activity_vertical_24"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You don’t have enough points"
+        android:textSize="14sp"
+        android:textColor="#515968"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You currently have 780 points which not enough to redeem. Please keep being active!"
+        android:textSize="14sp"
+        android:textColor="#515968"
+        android:layout_marginTop="@dimen/activity_vertical_twele"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_blue2"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="OK"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+</LinearLayout>
