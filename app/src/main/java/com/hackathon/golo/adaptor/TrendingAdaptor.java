@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.SearchResult;
@@ -39,6 +41,9 @@ public class TrendingAdaptor extends RecyclerView.Adapter<TrendingAdaptor.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvTitle.setText(explorerArrayList.get(position).getPlaceName());
         holder.tvDesc.setText(""+explorerArrayList.get(position).getPlaceId());
+
+        Glide.with(mContext).load(explorerArrayList.get(position).getPlaceThumbnail()).into(holder.ivThumb);
+
     }
 
     @Override
@@ -60,11 +65,13 @@ public class TrendingAdaptor extends RecyclerView.Adapter<TrendingAdaptor.ViewHo
 
         TextView tvTitle;
         TextView tvDesc;
+        ImageView ivThumb;
 
         ViewHolder(View view) {
             super(view);
             tvTitle = view.findViewById(R.id.tv_title);
             tvDesc = view.findViewById(R.id.tv_desc);
+            ivThumb = view.findViewById(R.id.iv_trending_thumb);
         }
     }
 }

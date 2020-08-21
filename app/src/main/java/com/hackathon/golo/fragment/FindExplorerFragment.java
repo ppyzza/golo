@@ -3,6 +3,7 @@ package com.hackathon.golo.fragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.location.Location;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +27,14 @@ import com.hackathon.golo.R;
 import com.hackathon.golo.adaptor.MainExplorerAdaptor;
 import com.hackathon.golo.constans.GoloConstants;
 import com.hackathon.golo.contract.ExplorerContract;
+import com.hackathon.golo.contract.SearchExploreContract;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.MainExplorerModel;
+import com.hackathon.golo.model.Offers;
 import com.hackathon.golo.model.SearchResult;
 import com.hackathon.golo.model.TravelMate;
 import com.hackathon.golo.presenters.ExplorerPresenter;
+import com.hackathon.golo.presenters.SearchExplorerPresenter;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -49,7 +54,7 @@ import org.th.tatsdk.search.TATPlacesSearchResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindExplorerFragment extends Fragment implements ExplorerContract.View {
+public class FindExplorerFragment extends Fragment implements ExplorerContract.View, SearchExploreContract.View {
 
     private Activity mActivity;
     private Context mContext;
@@ -63,7 +68,7 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
     private String apiKey = "GUjuQd31FzGhPuopjg3lM32arSZ1Ny(1YaEeMfeVbt2vtE3Xc777t4o4KOZObNLteprO3Q6xeaO3S4sxMOqdxQG=====2";
     private TATPlacesSearchParameter tatPlacesSearchParameter;
     private ExplorerPresenter mExplorerPresenter;
-
+    private SearchExplorerPresenter mSearchExplorerPresenter;
 
     @Nullable
     @Override
@@ -99,21 +104,8 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
 
         MainExplorerModel mainExplorerModel = new MainExplorerModel();
 
-        mainExplorerModel = new MainExplorerModel();
-        mainExplorerModel.setSeeMore(true);
-        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
-        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
-        mainExplorerModel.setExplorerArrayList(listExplorer);
-
-        mainExplorerModelArrayList.add(mainExplorerModel);
-
-
-        setAdaptor();
-
-        // getTrending();
-
-        //mExplorerPresenter = new ExplorerPresenter(this);
-        //mExplorerPresenter.getTravelMates();
+        mSearchExplorerPresenter = new SearchExplorerPresenter(this);
+        mSearchExplorerPresenter.getSearchContents();
 
         return rootView;
     }
@@ -130,6 +122,16 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
                     @Override
                     public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
                         Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
+                        if (ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            return;
+                        }
                         mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
                             @Override
                             public void onSuccess(Location location) {
@@ -144,36 +146,9 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
                     }
                 }).check();
 
-//        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-//            @Override
-//            public void onSuccess(Location location) {
-//                Toast.makeText(mActivity, "fff", Toast.LENGTH_SHORT).show();
-//                getTAT(location.getLatitude(), location.getLongitude());
-//            }
-//        });
+    }
 
-//        Dexter.withContext(mActivity)
-//                .withPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-//                .withListener(new MultiplePermissionsListener() {
-//                    @Override
-//                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-//                        Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
-//                        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-//                            @Override
-//                            public void onSuccess(Location location) {
-//                                     getTAT(location.getLatitude(), location.getLongitude());
-//                            }
-//                        });
-//                    }
-//
-//                    @Override
-//                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-//
-//                    }
-//                });
-//
-
-
+    private void getOffers() {
 
     }
 
@@ -213,8 +188,9 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
                 mainExplorerModel.setSearchResultArrayList(searchResults);
 
                 mainExplorerModelArrayList.add(mainExplorerModel);
-
                 setAdaptor();
+
+
             }
 
             @Override
@@ -243,6 +219,22 @@ public class FindExplorerFragment extends Fragment implements ExplorerContract.V
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-        setAdaptor();
+
+    }
+
+    @Override
+    public void showSearchContent(ArrayList<Offers> offersArrayList) {
+        MainExplorerModel mainExplorerModel;
+
+        mainExplorerModel = new MainExplorerModel();
+        mainExplorerModel.setSeeMore(true);
+        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
+        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
+        mainExplorerModel.setOffersArrayList(offersArrayList);
+
+        mainExplorerModelArrayList.add(mainExplorerModel);
+
+        getTrending();
+
     }
 }
