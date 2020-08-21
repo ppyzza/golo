@@ -13,12 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".normalactivity.PlanningActivity" >
+        <activity android:name=".normalactivity.PlanningActivity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        android:theme="@style/AppTheme">
-        <activity android:name=".ActivityEmptyWithBackToolBar"
+        <activity
+            android:name=".ActivityEmptyWithBackToolBar"
             android:label="@string/app_name"
-            android:theme="@style/MTheme"></activity>
+            android:theme="@style/MTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

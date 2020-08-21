@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/rl_trip_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f6f7f8"
-        android:id="@+id/rl_trip_name"
-        >
+        android:background="#f6f7f8">
 
         <TextView
             android:layout_width="match_parent"
@@ -19,24 +19,42 @@
             android:layout_marginBottom="@dimen/activity_vertical_twele"
             android:text="Trip Name"
             android:textSize="16sp" />
+
     </RelativeLayout>
 
-    <EditText
-        android:layout_below="@+id/rl_trip_name"
-        android:id="@+id/edt_trip_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/normal_margin"
-        android:layout_marginEnd="@dimen/normal_margin"
-        android:hint="Trip Name" />
-
     <RelativeLayout
-        android:layout_below="@+id/edt_trip_name"
+        android:id="@+id/rl_trip_name_tf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f6f7f8"
+        android:layout_below="@+id/rl_trip_name"
+        android:background="#ffffff">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_trip_name"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_trip_name"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:hint="Trip Name"
+            app:startIconDrawable="@drawable/ic_edit">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/normal_margin" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/rl_destination"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_trip_name_tf"
+        android:background="#f6f7f8">
 
         <TextView
             android:layout_width="match_parent"
@@ -48,36 +66,68 @@
             android:textSize="16sp" />
     </RelativeLayout>
 
-    <EditText
+    <RelativeLayout
+        android:id="@+id/rl_destination_tf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/rl_destination"
+        android:layout_marginStart="10px"
+        android:layout_marginTop="10px"
+        android:layout_marginEnd="10px"
+        android:layout_marginBottom="10px"
+        android:background="#ffffff">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_where"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:hint="Where are you going?"
+            app:startIconDrawable="@drawable/ic_map_pin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/normal_margin" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_start_end"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edt_where"
+            android:layout_marginStart="@dimen/normal_margin"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="@dimen/normal_margin"
+            android:hint="Start Date - End Date"
+            app:startIconDrawable="@drawable/ic_calendar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginBottom="@dimen/normal_margin" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/normal_margin"
-        android:layout_marginEnd="@dimen/normal_margin"
-        android:id="@+id/edt_where"
-        android:hint="Where are you going?" />
+        android:layout_alignParentBottom="true">
 
-    <EditText
-        android:layout_below="@+id/edt_where"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/normal_margin"
-        android:layout_marginEnd="@dimen/normal_margin"
-        android:id="@+id/edt_start_end"
-        android:hint="Start Date - End Date" />
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    >
+        <Button
+            android:id="@+id/startPlanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#2c85ff"
+            android:text="Start Planning"
 
-    <Button
-        android:id="@+id/startPlanBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#2c85ff"
-        android:text="Start Planning"
-
-        android:textColor="@android:color/white" />
-</RelativeLayout>
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
 </RelativeLayout>

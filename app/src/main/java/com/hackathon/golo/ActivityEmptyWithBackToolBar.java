@@ -1,6 +1,7 @@
 package com.hackathon.golo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -25,6 +26,8 @@ public class ActivityEmptyWithBackToolBar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empty_with_back_tool_bar);
+        Toolbar toolbar = findViewById(R.id.toolbarWhite);
+        setSupportActionBar(toolbar);
         Intent i = getIntent();
         String fragmentName = i.getStringExtra("fragment");
         Fragment fragment;
@@ -34,7 +37,7 @@ public class ActivityEmptyWithBackToolBar extends AppCompatActivity {
                 fragment = new CreatePlanFragment();
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.mainframe, fragment)
+                        .replace(R.id.mainFrame, fragment)
                         .commit();
             default:
         }
