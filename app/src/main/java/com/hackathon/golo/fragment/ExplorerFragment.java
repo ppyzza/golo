@@ -105,13 +105,13 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-//        mainExplorerModel = new MainExplorerModel();
-//        mainExplorerModel.setSeeMore(true);
-//        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
-//        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
-//        mainExplorerModel.setExplorerArrayList(listExplorer);
-//
-//        mainExplorerModelArrayList.add(mainExplorerModel);
+        mainExplorerModel = new MainExplorerModel();
+        mainExplorerModel.setSeeMore(true);
+        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
+        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
+        mainExplorerModel.setExplorerArrayList(listExplorer);
+
+        mainExplorerModelArrayList.add(mainExplorerModel);
 
 
 
@@ -129,25 +129,26 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
     }
 
     private void getTrending() {
-        Dexter.withContext(mActivity)
-                .withPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(new MultiplePermissionsListener() {
-                    @Override
-                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
-                        Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
-                        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
-                            @Override
-                            public void onSuccess(Location location) {
-                                getTAT(location.getLatitude(), location.getLongitude());
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
-
-                    }
-                }).check();
+        getTAT(18.805070, 98.921655);
+//        Dexter.withContext(mActivity)
+//                .withPermissions(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+//                .withListener(new MultiplePermissionsListener() {
+//                    @Override
+//                    public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+//                        Toast.makeText(mActivity, "why", Toast.LENGTH_SHORT).show();
+//                        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+//                            @Override
+//                            public void onSuccess(Location location) {
+//                                getTAT(location.getLatitude(), location.getLongitude());
+//                            }
+//                        });
+//                    }
+//
+//                    @Override
+//                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+//
+//                    }
+//                }).check();
 
 //        mFusedLocationClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
 //            @Override
@@ -182,7 +183,7 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
     }
 
-    private void getTAT(double latitude, double longitude) {
+    private void getTAT(Double latitude, Double longitude) {
         TATGeolocation tatLocation = new TATGeolocation(latitude, longitude);
         tatPlacesSearchParameter = new TATPlacesSearchParameter(tatLocation, TATLanguage.THAI);
         // tatPlacesSearchParameter.setNumberOfResult(10);
@@ -247,7 +248,7 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
         mainExplorerModel.setTravelMateArrayList(travelMateList);
 
         mainExplorerModelArrayList.add(mainExplorerModel);
-
-        setAdaptor();
+        getTrending();
+        // setAdaptor();
     }
 }

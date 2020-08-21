@@ -1,6 +1,7 @@
 package com.hackathon.golo.service;
 
 import com.hackathon.golo.model.Offers;
+import com.hackathon.golo.model.Promotion;
 import com.hackathon.golo.model.TravelMate;
 
 import java.util.ArrayList;
@@ -15,5 +16,8 @@ public interface ApiInterface {
 
     @GET("/offers_around")
     Observable<ArrayList<Offers>> getOffers();
+
+    @GET("/promotion")
+    Observable<ArrayList<Promotion>> getPromotion();
 
 }

@@ -13,14 +13,14 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.hackathon.golo.fragment.FavoritesFragment"
-        android:label="@string/title_favorites"
+        android:name="com.hackathon.golo.fragment.TogoFragment"
+        android:label="@string/title_togo"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/navigation_my_plans"
-        android:name="com.hackathon.golo.myplan.MyPlanMultipleTabFragment"
-        android:label="@string/title_my_plans"
+        android:name="com.hackathon.golo.fragment.LocalFragment"
+        android:label="@string/title_locals"
         tools:layout="@layout/fragment_my_plans" />
 
     <fragment
@@ -28,4 +28,9 @@
         android:name="com.hackathon.golo.fragment.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/planningFragment"
+        android:name="com.hackathon.golo.fragment.PlanningFragment"
+        android:label="fragment_planning"
+        tools:layout="@layout/fragment_planning" />
 </navigation>

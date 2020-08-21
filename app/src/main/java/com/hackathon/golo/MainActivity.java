@@ -25,11 +25,24 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
+    public MainActivity() {
+    }
+
+    private BottomNavigationView navView;
+    private FrameLayout fabFrame;
+    private LinearLayout layoutCreateNewPlan;
+    private LinearLayout layOutLocalGuide;
+    private FloatingActionButton fab;
+    private RelativeLayout rl_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        fabFrame = findViewById(R.id.fabFrame);
+        navView = findViewById(R.id.nav_view);
+        fab = findViewById(R.id.fab);
+        rl_back = findViewById(R.id.rl_back);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -55,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         mPlanRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-               // Log.d("FJTAG", dataSnapshot.toString());
-//                String value = dataSnapshot.getValue(String.class);
+                // Log.d("FJTAG", dataSnapshot.toString());
+//                String value = dataSnapshot.getValue(String.class);`
 //                builder.setCancelable(false);
 //                builder.setMessage(value);
 //                AlertDialog dialog = builder.create();
@@ -67,14 +83,20 @@ public class MainActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError error) {
             }
         });
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        buttonAction();
+        closeSubMenusFab();
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSubMenusFab();
+            }
+        });
+        rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeSubMenusFab();
+            }
+        });
         createPlan();
     }
 
@@ -92,4 +114,35 @@ public class MainActivity extends AppCompatActivity {
         return "userid-1";
     }
 
+    private void buttonAction() {
+
+        layoutCreateNewPlan = (LinearLayout) this.findViewById(R.id.layOutCreateNewPlan);
+        layoutCreateNewPlan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        layOutLocalGuide = (LinearLayout) this.findViewById(R.id.layOutLocalGuide);
+        layOutLocalGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+    }
+
+    private void closeSubMenusFab() {
+        fabFrame.setVisibility(View.GONE);
+        fab.setVisibility(View.VISIBLE);
+        navView.setVisibility(View.VISIBLE);
+    }
+
+    //Opens FAB submenus
+    private void openSubMenusFab() {
+        fabFrame.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.GONE);
+        navView.setVisibility(View.GONE);
+    }
 }
