@@ -74,18 +74,37 @@
                 android:textColor="#8792a0"
                 />
         </LinearLayout>
-        <TextView
-            android:layout_marginTop="@dimen/activity_vertical_eight"
-            android:layout_marginEnd="@dimen/activity_vertical_eight"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/normal_margin"
-            android:text="#Voucher"
-            android:padding="1sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/bg_blue"
-            android:textSize="10sp"
+            android:id="@+id/addToMyPlan"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_add_circle"
+            android:layout_marginLeft="13dp"
             />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_gravity="center_vertical"
+            android:text="Add to My Plan"
+            android:textColor="@color/colorPrimary"
+            android:background="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            />
+        </LinearLayout>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

@@ -1,6 +1,8 @@
 package com.hackathon.golo.model.placedetail;
 
 import java.util.List;
+
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Result{
@@ -50,8 +52,9 @@ public class Result{
 	@SerializedName("location")
 	private Location location;
 
+	@Expose
 	@SerializedName("facilities")
-	private Facilities facilities;
+	private List<Facilities> facilities;
 
 	@SerializedName("hit_score")
 	private String hitScore;
@@ -185,11 +188,11 @@ public class Result{
 		return location;
 	}
 
-	public void setFacilities(Facilities facilities){
+	public void setFacilities(List<Facilities> facilities){
 		this.facilities = facilities;
 	}
 
-	public Facilities getFacilities(){
+	public List<Facilities> getFacilities(){
 		return facilities;
 	}
 

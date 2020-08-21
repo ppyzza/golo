@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fabFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayScale"
+            android:id="@+id/rl_back">
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/rl_back">
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/layOutCreateOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layOutCreateNewPlan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:background="@color/colorWhite">
+
+
+                <TextView
+                    android:id="@+id/createNewPlan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create New Plan"
+                    android:paddingRight="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layOutLocalGuide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_below="@+id/layOutCreateNewPlan"
+                android:orientation="horizontal"
+                android:paddingTop="13dp"
+                android:paddingBottom="20dp"
+                android:background="@color/colorWhite">
+
+
+                <TextView
+                    android:id="@+id/localGuide"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Local Guide"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="5dp"
+                    />
+
+
+            </LinearLayout>
+        </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>
