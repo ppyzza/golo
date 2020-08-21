@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navView;
     private FrameLayout fabFrame;
+    private Boolean fabExpanded = false;
     private LinearLayout layoutCreateNewPlan;
     private LinearLayout layOutLocalGuide;
     private FloatingActionButton fab;
@@ -50,13 +51,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        buttonAction();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ActivityEmptyWithBackToolBar.class);
-                intent.putExtra("fragment", "create_plan");
-                startActivity(intent);
+                openSubMenusFab();
+            }
+        });
+        rl_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeSubMenusFab();
             }
         });
     }
@@ -67,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
         layoutCreateNewPlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityEmptyWithBackToolBar.class);
+                intent.putExtra("fragment", "create_plan");
+                startActivity(intent);
 
             }
         });
