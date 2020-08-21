@@ -45,4 +45,10 @@
     -->
     <string name="hello_world">Hello Square World!</string>
 
+<!--    TODO delete-->
+    <string name="planning_item_location">Pong Yang Adventure Park Experience</string>
+    <string name="planning_item_score">4.4</string>
+    <string name="planning_item_review">(67 Reviews) | 1.5 km from here</string>
+
+
 </resources>

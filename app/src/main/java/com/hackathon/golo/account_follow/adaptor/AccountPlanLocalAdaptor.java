@@ -1,4 +1,4 @@
-package com.hackathon.golo.accountfollow.adaptor;
+package com.hackathon.golo.account_follow.adaptor;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,28 +7,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hackathon.golo.R;
-import com.hackathon.golo.accountfollow.model.AccountPlanModel;
+import com.hackathon.golo.account_follow.model.AccountPlanModel;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-public class AccountPlanAdaptor extends RecyclerView.Adapter<AccountPlanAdaptor.ViewHolder> {
+public class AccountPlanLocalAdaptor extends RecyclerView.Adapter<AccountPlanLocalAdaptor.ViewHolder> {
 
     Context mContext;
     public ArrayList<AccountPlanModel> planList = new ArrayList<>();
 
-    public AccountPlanAdaptor(Context context) {
+    public AccountPlanLocalAdaptor(Context context) {
         mContext = context;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan, null, false);
-        AccountPlanAdaptor.ViewHolder vh = new AccountPlanAdaptor.ViewHolder(view);
+    public AccountPlanLocalAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan_local, null, false);
+        AccountPlanLocalAdaptor.ViewHolder vh = new AccountPlanLocalAdaptor.ViewHolder(view);
         return vh;
     }
 
@@ -62,9 +61,9 @@ public class AccountPlanAdaptor extends RecyclerView.Adapter<AccountPlanAdaptor.
 
         ViewHolder(View view) {
             super(view);
-            tvName = view.findViewById(R.id.tv_plan_name);
-            tvDescription = view.findViewById(R.id.tv_plan_description);
-            tvInfo = view.findViewById(R.id.tv_plan_info);
+            tvName = view.findViewById(R.id.tv_planName);
+            tvDescription = view.findViewById(R.id.tv_planDate);
+            tvInfo = view.findViewById(R.id.tv_location);
         }
     }
 }
