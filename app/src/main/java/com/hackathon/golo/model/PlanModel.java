@@ -1,5 +1,7 @@
 package com.hackathon.golo.model;
 
+import java.util.Map;
+
 public class PlanModel {
     public String planName;
     public String destinationName;
@@ -7,18 +9,19 @@ public class PlanModel {
     public String to;
     public Double lat;
     public Double lon;
-    public Boolean keepThisPlanPublicSwitch;
+    public Map<String, Object> dateRange;
 
     public PlanModel() {
     }
 
-    public PlanModel(String planName, String destinationName, String from, String to, Double lat, Double lon) {
+    public PlanModel(String planName, String destinationName, String from, String to, Double lat, Double lon, Map<String, Object> dateRange) {
         this.planName = planName;
         this.destinationName = destinationName;
         this.from = from;
         this.to = to;
         this.lat = lat;
         this.lon = lon;
+        this.dateRange = dateRange;
     }
 
     public String getPlanName() {
@@ -67,5 +70,18 @@ public class PlanModel {
 
     public void setLon(Double lon) {
         this.lon = lon;
+    }
+
+    @Override
+    public String toString() {
+        return "PlanModel{" +
+                "planName='" + planName + '\'' +
+                ", destinationName='" + destinationName + '\'' +
+                ", from='" + from + '\'' +
+                ", to='" + to + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", dateRange=" + dateRange +
+                '}';
     }
 }
