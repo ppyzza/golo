@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 import com.hackathon.golo.R;
+import com.hackathon.golo.account.AccountPagerAdapter;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,10 @@ public class AccountFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ArrayList<String> data = new ArrayList<>();
+
+    private AccountPagerAdapter adapter;
+    private String titleArray[];
+
 
     @Nullable
     @Override
@@ -43,5 +48,27 @@ public class AccountFragment extends Fragment {
             tabLayout.addTab(tabLayout.newTab().setText(data.get(i)));
         }
 
+        adapter = new AccountPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(1);
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 }

@@ -52,7 +52,7 @@
                     android:id="@+id/tv_plan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2 Plans | "
+                    android:text="3 Plans | "
                     android:textColor="#fff" />
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/tv_plan"
-                    android:text="131 Reviewer"
+                    android:text="1 Reviewer"
                     android:textColor="#fff" />
             </RelativeLayout>
 
@@ -70,7 +70,7 @@
                 android:id="@+id/tv_point"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="900 Points"
+                android:text="100 Points"
                 android:textColor="#ffd322" />
         </LinearLayout>
 
@@ -184,18 +184,16 @@
         android:id="@+id/tab_layout"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        app:tabTextColor="#1f65e0"
+        app:tabTextColor="@color/colorWhite"
         app:tabSelectedTextColor="@color/colorWhite"
         app:tabBackground="@color/colorPrimary"
         app:tabIndicatorColor="@color/colorWhite"
-        >
+        />
 
-        <!--android:background="@color/colorPrimary"
-        app:tabIndicatorColor="@color/colorWhite" -->
-    </com.google.android.material.tabs.TabLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/rl_tab"/>
+        android:layout_height="match_parent"/>
+
+
 </LinearLayout>
