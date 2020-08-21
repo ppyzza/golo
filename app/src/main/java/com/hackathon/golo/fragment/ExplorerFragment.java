@@ -105,13 +105,13 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-//        mainExplorerModel = new MainExplorerModel();
-//        mainExplorerModel.setSeeMore(true);
-//        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
-//        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
-//        mainExplorerModel.setExplorerArrayList(listExplorer);
-//
-//        mainExplorerModelArrayList.add(mainExplorerModel);
+        mainExplorerModel = new MainExplorerModel();
+        mainExplorerModel.setSeeMore(true);
+        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
+        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
+        mainExplorerModel.setExplorerArrayList(listExplorer);
+
+        mainExplorerModelArrayList.add(mainExplorerModel);
 
 
 
