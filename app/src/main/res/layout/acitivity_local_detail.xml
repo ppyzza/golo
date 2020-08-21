@@ -30,7 +30,7 @@
         android:id="@+id/bt_ok"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pay Now"
+        android:text="Book Me!"
         android:textColor="@color/colorWhite"
         android:gravity="center"
         android:background="@drawable/bg_white_blue"

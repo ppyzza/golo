@@ -75,12 +75,40 @@ public class LocalGuideActivity extends AppCompatActivity {
         planList.setKm(10);
         planList.setPlaceName("Ascend B2B CTA");
         planList.setReview(10);
-        planLists.add(planList);
-        planLists.add(planList);
-        planLists.add(planList);
-        planLists.add(planList);
+        planList.setViewType("start");
         planLists.add(planList);
 
+        planList = new PlanList();
+        planList.setDistance(20);
+        planList.setKm(10);
+        planList.setPlaceName("Ascend B2B CTA");
+        planList.setReview(10);
+        planList.setViewType("place");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance(20);
+        planList.setKm(10);
+        planList.setPlaceName("Ascend B2B CTA");
+        planList.setReview(10);
+        planList.setViewType("middle");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance(20);
+        planList.setKm(10);
+        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setReview(10);
+        planList.setViewType("place");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance(20);
+        planList.setKm(10);
+        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setReview(10);
+        planList.setViewType("bottom");
+        planLists.add(planList);
         localDetail.setPlanListArrayList(planLists);
 
         localsArrayList.add(locals);

@@ -2,6 +2,15 @@ package com.hackathon.golo.model;
 
 public class PlanList {
 
+    public String getViewType() {
+        return viewType;
+    }
+
+    public void setViewType(String viewType) {
+        this.viewType = viewType;
+    }
+
+    private String viewType;
     private String placeName;
     private int review;
     private int distance;
