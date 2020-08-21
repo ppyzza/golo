@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="com.hackathon.golo.fragment.FavoritesFragment"
+        android:name="com.hackathon.golo.fragment.TogoFragment"
         android:label="@string/title_togo"
         tools:layout="@layout/fragment_favorites" />
 
