@@ -49,6 +49,9 @@
         <activity
             android:name=".PromotionDetailActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AccountFollowDetailActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
