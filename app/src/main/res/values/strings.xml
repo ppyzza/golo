@@ -2,8 +2,8 @@
     <string name="app_name">GoLo</string>
     <string name="action_settings">Settings</string>
     <string name="title_explorer">Explorer</string>
-    <string name="title_favorites">Favorites</string>
-    <string name="title_my_plans">My Plans</string>
+    <string name="title_togo">To Go</string>
+    <string name="title_locals">Locals</string>
     <string name="title_account">Account</string>
     <string name="explorer_itineraries">Itineraries</string>
     <string name="explorer_locals">Locals</string>
@@ -11,6 +11,8 @@
     <string name="explorer_travelling">Travelling</string>
     <string name="explorer_food_drink">Food&amp;Drink</string>
     <string name="explorer_shopping">Shopping</string>
+    <string name="explorer_art_culture">Art&amp;Culture</string>
+    <string name="explorer_nature">Nature</string>
     <string name="explorer_nightlife">Nightlife</string>
     <string name="explorer_more">More</string>
     <string name="item_text">Reviews</string>
