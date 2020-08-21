@@ -2,8 +2,8 @@
     <string name="app_name">GoLo</string>
     <string name="action_settings">Settings</string>
     <string name="title_explorer">Explorer</string>
-    <string name="title_favorites">Favorites</string>
-    <string name="title_my_plans">My Plans</string>
+    <string name="title_togo">To Go</string>
+    <string name="title_locals">Locals</string>
     <string name="title_account">Account</string>
     <string name="explorer_itineraries">Itineraries</string>
     <string name="explorer_locals">Locals</string>

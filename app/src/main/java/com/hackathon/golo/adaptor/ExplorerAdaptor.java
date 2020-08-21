@@ -1,9 +1,11 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,6 +39,7 @@ public class ExplorerAdaptor extends RecyclerView.Adapter<ExplorerAdaptor.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.tvImage.setText(explorerArrayList.get(position).getTitle());
+        holder.image.setImageResource(explorerArrayList.get(position).getImage());
     }
 
     @Override
@@ -57,10 +60,12 @@ public class ExplorerAdaptor extends RecyclerView.Adapter<ExplorerAdaptor.ViewHo
     final class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvImage;
+        ImageView image;
 
         ViewHolder(View view) {
             super(view);
             tvImage = view.findViewById(R.id.tv_image);
+            image = view.findViewById(R.id.image);
         }
     }
 }

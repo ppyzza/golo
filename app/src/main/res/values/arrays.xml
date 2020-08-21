@@ -11,13 +11,13 @@
         <item>@string/explorer_more</item>
     </string-array>
     <integer-array name="menu_explorer_image">
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
-        <item>@drawable/ic_itineraries</item>
+        <item>@drawable/must_see</item>
+        <item>@drawable/travelling</item>
+        <item>@drawable/food_drink</item>
+        <item>@drawable/shopping</item>
+        <item>@drawable/art_culture</item>
+        <item>@drawable/nature</item>
+        <item>@drawable/nightlife</item>
+        <item>@drawable/more</item>
     </integer-array>
 </resources>
