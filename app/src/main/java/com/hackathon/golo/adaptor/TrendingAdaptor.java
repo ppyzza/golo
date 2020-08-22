@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.SearchResult;
@@ -48,7 +51,14 @@ public class TrendingAdaptor extends RecyclerView.Adapter<TrendingAdaptor.ViewHo
         holder.tvTitle.setText(explorerArrayList.get(position).getPlaceName());
         holder.tvDesc.setText(""+explorerArrayList.get(position).getPlaceId());
 
-        Glide.with(mContext).load(explorerArrayList.get(position).getPlaceThumbnail()).into(holder.ivThumb);
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.no_image_thumb)
+                .error(R.drawable.no_image_thumb)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(mContext).load(explorerArrayList.get(position).getPlaceThumbnail()).apply(options).into(holder.ivThumb);
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override

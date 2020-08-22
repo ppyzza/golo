@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
         layOutLocalGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(MainActivity.this, LocalListActivity.class);
+                i.putExtra("fragment", "local");
+                startActivity(i);
             }
         });
     }
