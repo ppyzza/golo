@@ -56,7 +56,7 @@ public class TrendingAdaptor extends RecyclerView.Adapter<TrendingAdaptor.ViewHo
 //                Intent i = new Intent(mContext, ExplorerDetailActivity.class);
 //                i.putExtra("placeId", explorerArrayList.get(position).getPlaceId());
 //                mContext.startActivity(i);
-                EventBus.getDefault().post(new SelectLocationModel("test","test","test"));
+                EventBus.getDefault().post(new SelectLocationModel(explorerArrayList.get(position).getPlaceName(),"4.4",String.format("(67 Reviews) | %s km from here", explorerArrayList.get(position).getPlaceDistance())));
             }
         });
 

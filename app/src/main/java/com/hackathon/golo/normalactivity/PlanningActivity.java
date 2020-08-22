@@ -40,6 +40,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
@@ -49,6 +50,8 @@ public class PlanningActivity extends AppCompatActivity {
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private PlanModel value;
+    private List<SelectLocationModel> selectLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +73,8 @@ public class PlanningActivity extends AppCompatActivity {
         mPlanRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                viewPager = (ViewPager) findViewById(R.id.viewPager);
-                tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-                adapter = new TabAdapter(getSupportFragmentManager());
-                PlanModel value = dataSnapshot.getValue(PlanModel.class);
+
+                value = dataSnapshot.getValue(PlanModel.class);
                 String form = value.getFrom();
                 String to = value.getTo();
                 TextView locationPeriod = (TextView)findViewById(R.id.location_period_from_to);
@@ -82,27 +83,36 @@ public class PlanningActivity extends AppCompatActivity {
 
                     TextView planName = (TextView)findViewById(R.id.plan_name);
                     planName.setText(value.getPlanName());
-                    for(String dateRangeKey : value.dateRange.keySet()) {
-                        String[] date = dateRangeKey.split("-");
-                        adapter.addFragment(new TabViewFragment(), String.format("%s/%s", date[2], date[1]));
-                    }
+                    setTabView(value);
 
-                    viewPager.setAdapter(adapter);
-                    tabLayout.setupWithViewPager(viewPager);
                     Log.d(TAG, "Value plan is: " + dataSnapshot.toString());
 
-                    MaterialButton goExplore = findViewById(R.id.go_explore);
-                    goExplore.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            FragmentManager manager = getSupportFragmentManager();
-                            FragmentTransaction transaction = manager.beginTransaction();
-                            transaction.replace(R.id.planning_fragment, new MyPlanMultipleTabFragment());
-                            transaction.commit();
-                        }
-                    });
                 }
 
+            }
+
+            public void setTabView(PlanModel value) {
+                viewPager = (ViewPager) findViewById(R.id.viewPager);
+                tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+                adapter = new TabAdapter(getSupportFragmentManager());
+                for(String dateRangeKey : value.dateRange.keySet()) {
+                    String[] date = dateRangeKey.split("-");
+                    TabViewFragment tabViewFragment = new TabViewFragment();
+                    adapter.addFragment(tabViewFragment, String.format("%s/%s", date[2], date[1]));
+                }
+                viewPager.setAdapter(adapter);
+                tabLayout.setupWithViewPager(viewPager);
+
+                MaterialButton goExplore = findViewById(R.id.go_explore);
+                goExplore.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        FragmentManager manager = getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+                        transaction.replace(R.id.planning_fragment, new MyPlanMultipleTabFragment());
+                        transaction.commit();
+                    }
+                });
             }
 
             @Override
@@ -120,7 +130,7 @@ public class PlanningActivity extends AppCompatActivity {
     public void onMessageEvent(SelectLocationModel event) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.planning_fragment, new PlanningFragment());
+        transaction.replace(R.id.add_here_mock, new PlanningFragment());
         transaction.commit();
     };
 
