@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.hackathon.golo.R;
@@ -14,12 +15,16 @@ import javax.annotation.Nullable;
 public class ConfirmRedeemDialogFragment extends BottomSheetDialogFragment {
 
     private Button btOk, btCancel;
+    private Integer sumPoint = 0;
+    private TextView tvTitle;
+
     ConfirmRedeemDialogInterface confirmDialogInterface;
     public static ConfirmRedeemDialogFragment newInstance() {
         return new ConfirmRedeemDialogFragment();
     }
 
-    public void setConfirmRedeemDialogInterface(ConfirmRedeemDialogInterface confirmDialogInterface) {
+    public void setConfirmRedeemDialogInterface(ConfirmRedeemDialogInterface confirmDialogInterface, Integer sumPoint) {
+        this.sumPoint = sumPoint;
         this.confirmDialogInterface = confirmDialogInterface;
     }
     public interface ConfirmRedeemDialogInterface {
@@ -39,6 +44,8 @@ public class ConfirmRedeemDialogFragment extends BottomSheetDialogFragment {
         // get the views and attach the listener
         btOk = view.findViewById(R.id.bt_ok);
         btCancel = view.findViewById(R.id.bt_cancel);
+        tvTitle = view.findViewById(R.id.tv_title);
+        tvTitle.setText("Redeem with "+ sumPoint +" point?");
 
         btOk.setOnClickListener(new View.OnClickListener() {
             @Override

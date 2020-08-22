@@ -10,16 +10,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hackathon.golo.adaptor.PromotionAdaptor;
 import com.hackathon.golo.contract.PromotionContract;
 import com.hackathon.golo.fragment.ConfirmRedeemDialogFragment;
-import com.hackathon.golo.fragment.PaymentDialogFragment;
 import com.hackathon.golo.model.Attribute;
 import com.hackathon.golo.model.Campaign;
 import com.hackathon.golo.model.Promotion;
@@ -29,13 +26,10 @@ import com.hackathon.golo.presenters.PromotionPresenter;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PromotionDetailActivity extends AppCompatActivity implements PromotionContract.View {
     private ArrayList<Promotion> promotionList;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private PromotionPresenter promotionPresenter;
     private TextView tvName;
     private TextView tvDescription;
@@ -82,7 +76,8 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
 
                 redeemBottomDialogFragment.show(getSupportFragmentManager(),
                         "confirm_dialog");
-                redeemBottomDialogFragment.setConfirmRedeemDialogInterface(new ConfirmRedeemDialogFragment.ConfirmRedeemDialogInterface() {
+                redeemBottomDialogFragment.setConfirmRedeemDialogInterface(
+                        new ConfirmRedeemDialogFragment.ConfirmRedeemDialogInterface() {
                     @Override
                     public void confirm() {
                         if(sumPoint > userPoint){
@@ -102,7 +97,7 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
                     public void cancel() {
 
                     }
-                }
+                }, sumPoint
                );
             }
         });
@@ -180,11 +175,12 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
     @Override
     public void showRedeemSuccess(Campaign campaign) {
         Log.i("tag", "Success");
+        final DatabaseReference mMessagesRef = mDatabase.child("user").child("userid-2");
+        mMessagesRef.child("point").setValue(userPoint - sumPoint);
+
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, "Redeem Success", Toast.LENGTH_LONG);
         toast.show();
-
-        // filebase minus point
     }
 
     @Override
