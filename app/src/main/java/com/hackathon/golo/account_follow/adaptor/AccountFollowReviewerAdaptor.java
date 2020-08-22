@@ -14,24 +14,24 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AccountReviewerAdaptor extends RecyclerView.Adapter<AccountReviewerAdaptor.ViewHolder> {
+public class AccountFollowReviewerAdaptor extends RecyclerView.Adapter<AccountFollowReviewerAdaptor.ViewHolder> {
     Context mContext;
     public ArrayList<AccountPlanModel> planList = new ArrayList<>();
 
-    public AccountReviewerAdaptor(Context context) {
+    public AccountFollowReviewerAdaptor(Context context) {
         mContext = context;
     }
 
     @NonNull
     @Override
-    public AccountReviewerAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AccountFollowReviewerAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan_reviewer, null, false);
-        AccountReviewerAdaptor.ViewHolder vh = new AccountReviewerAdaptor.ViewHolder(view);
+        AccountFollowReviewerAdaptor.ViewHolder vh = new AccountFollowReviewerAdaptor.ViewHolder(view);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AccountReviewerAdaptor.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AccountFollowReviewerAdaptor.ViewHolder holder, int position) {
         holder.tvImage.setText(planList.get(position).getName());
     }
 

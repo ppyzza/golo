@@ -3,6 +3,7 @@ package com.hackathon.golo.normalactivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -28,6 +29,7 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
     private ImageView ivBanner, ivThumb;
     private Activity mActivity;
     private TextView tvTitle, tvLocation, tvDetail;
+    private Button mButton;
     private Bundle mBundle;
     private String placeId;
     private Switcher mSwitcher;
@@ -53,11 +55,13 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
         setSupportActionBar(toolbar);
 
 
+
         ivBanner = findViewById(R.id.iv_banner);
         ivThumb = findViewById(R.id.iv_trending_thumb);
         tvTitle = findViewById(R.id.tv_title);
         tvLocation = findViewById(R.id.tv_location);
         tvDetail = findViewById(R.id.tv_detail);
+        mButton = findViewById(R.id.bt_addToMyPlan);
 
         mDetailExplorerPresenter = new DetailExplorerPresenter(this);
         mDetailExplorerPresenter.getPlaceDetail(placeId);
@@ -79,5 +83,6 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
     @Override
     public void show404Notfound() {
         mSwitcher.showEmptyView();
+        mButton.setVisibility(View.GONE);
     }
 }

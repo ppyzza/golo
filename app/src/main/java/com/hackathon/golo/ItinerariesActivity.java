@@ -40,73 +40,73 @@ public class ItinerariesActivity extends AppCompatActivity {
         rlPay = findViewById(R.id.rl_pay);
 
         mActivity = ItinerariesActivity.this;
+        Locals locals;
+        PlanList planList;
 
-
-        Locals locals = new Locals();
+        locals = new Locals();
         locals.setViewType("top");
         LocalDetail localDetail = new LocalDetail();
-        localDetail.setDistance(10);
-        localDetail.setHours(2);
-        localDetail.setName("Korea Tour Online");
-        localDetail.setPlanReview(20);
-        localDetail.setTitle("Korea Tour Online");
-        localDetail.setPrice("1,080 Bath/Person");
-        localDetail.setDetail("This is a book");
 
         locals.setLocalDetail(localDetail);
 
         localsArrayList.add(locals);
 
-
         locals = new Locals();
         locals.setViewType("other");
-        localDetail = new LocalDetail();
-        localDetail.setDistance(10);
-        localDetail.setHours(2);
-        localDetail.setName("Korea Tour Online");
-        localDetail.setPlanReview(20);
-        localDetail.setTitle("Korea Tour Online");
-        localDetail.setPrice("1,080 Bath/Person");
-        localDetail.setDetail("This is a book");
-
-        locals.setLocalDetail(localDetail);
-
-        PlanList planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
-        planList.setReview(10);
+        planList = new PlanList();
         planList.setViewType("start");
         planLists.add(planList);
 
+        locals.setLocalDetail(localDetail);
+
         planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
-        planList.setReview(10);
+        planList.setDistance("(67 Reviews) | 7 km from here");
+        planList.setKm(1.5);
+        planList.setPlaceName("Wat Phra That Doi Suthep");
+        planList.setReview(67);
         planList.setViewType("place");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
-        planList.setReview(10);
+        planList.setDistance("20 mins by bus");
         planList.setViewType("middle");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
+        planList.setDistance("(100 Reviews) | 0.5 km from here");
         planList.setKm(10);
-        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setPlaceName("Nimman Road (Nimmanhemin)");
         planList.setReview(10);
         planList.setViewType("place");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
+        planList.setDistance("10 mins by bus");
+        planList.setViewType("middle");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance("(100 Reviews) | 5 km from here");
         planList.setKm(10);
-        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setPlaceName("Warorot Market (or Kad Luang)");
+        planList.setReview(10);
+        planList.setViewType("place");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance("15 mins by walking");
+        planList.setViewType("middle");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance("(100 Reviews) | 3 km from here");
+        planList.setKm(10);
+        planList.setPlaceName("Tha Pae Gate");
+        planList.setReview(10);
+        planList.setViewType("place");
+        planLists.add(planList);
+
+        planList = new PlanList();
         planList.setReview(10);
         planList.setViewType("bottom");
         planLists.add(planList);

@@ -89,6 +89,7 @@
                             android:layout_gravity="end"
                             android:layout_weight="2"
                             android:text="800 point"
+                            android:textStyle="bold"
                             android:textAlignment="textEnd"
                             android:textColor="@android:color/holo_green_dark"
                             android:textSize="18sp" />

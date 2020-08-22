@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hackathon.golo.adaptor.LocalListAdaptor;
 import com.hackathon.golo.fragment.PaymentDialogFragment;
 import com.hackathon.golo.model.LocalDetail;
@@ -18,6 +18,11 @@ import com.hackathon.golo.model.Locals;
 import com.hackathon.golo.model.PlanList;
 
 import java.util.ArrayList;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LocalGuideActivity extends AppCompatActivity {
 
@@ -28,6 +33,8 @@ public class LocalGuideActivity extends AppCompatActivity {
     private ArrayList<PlanList> planLists = new ArrayList<>();
     private Button buttonPay;
     private LinearLayout rlPay;
+    private DatabaseReference mDatabase;
+    private int newPoint;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,11 +53,9 @@ public class LocalGuideActivity extends AppCompatActivity {
         LocalDetail localDetail = new LocalDetail();
         localDetail.setDistance(10);
         localDetail.setHours(2);
-        localDetail.setName("Korea Tour Online");
-        localDetail.setPlanReview(20);
-        localDetail.setTitle("Korea Tour Online");
+        localDetail.setName("Doi Pui with Great Local");
+        localDetail.setPlanReview(94);
         localDetail.setPrice("1,080 Bath/Person");
-        localDetail.setDetail("This is a book");
 
         locals.setLocalDetail(localDetail);
 
@@ -60,55 +65,53 @@ public class LocalGuideActivity extends AppCompatActivity {
         locals = new Locals();
         locals.setViewType("other");
         localDetail = new LocalDetail();
-        localDetail.setDistance(10);
-        localDetail.setHours(2);
-        localDetail.setName("Korea Tour Online");
-        localDetail.setPlanReview(20);
-        localDetail.setTitle("Korea Tour Online");
-        localDetail.setPrice("1,080 Bath/Person");
-        localDetail.setDetail("This is a book");
 
         locals.setLocalDetail(localDetail);
 
         PlanList planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
-        planList.setReview(10);
         planList.setViewType("start");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
+        planList.setDistance("(76 Reviews) | 9 km from here");
+        planList.setKm(1.7);
+        planList.setPlaceName("Doi Pui Mong Hill Tribe Village(หมู่บ้านม้งดอยปุย)");
         planList.setReview(10);
         planList.setViewType("place");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
-        planList.setKm(10);
-        planList.setPlaceName("Ascend B2B CTA");
-        planList.setReview(10);
+        planList.setDistance("25 mins by car");
         planList.setViewType("middle");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
+        planList.setDistance("(66 Reviews) | 19 km from here");
         planList.setKm(10);
-        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setPlaceName("Doi Pui View Point(จุดชมวิวดอยปุย)");
         planList.setReview(10);
         planList.setViewType("place");
         planLists.add(planList);
 
         planList = new PlanList();
-        planList.setDistance(20);
+        planList.setDistance("20 mins by car");
+        planList.setViewType("middle");
+        planLists.add(planList);
+
+        planList = new PlanList();
+        planList.setDistance("(103 Reviews) | 1.5 km from here");
         planList.setKm(10);
-        planList.setPlaceName("Galaxy Far Far Away");
+        planList.setPlaceName("Doi Pui Waterfall(น้ำตกดอยปุย)");
+        planList.setReview(10);
+        planList.setViewType("place");
+        planLists.add(planList);
+
+        planList = new PlanList();
         planList.setReview(10);
         planList.setViewType("bottom");
         planLists.add(planList);
+        localDetail.setPlanListArrayList(planLists);
+
         localDetail.setPlanListArrayList(planLists);
 
         localsArrayList.add(locals);
@@ -122,6 +125,26 @@ public class LocalGuideActivity extends AppCompatActivity {
         mAdapter = new LocalListAdaptor(mActivity, localsArrayList);
 
         mRecyclerView.setAdapter(mAdapter);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        final DatabaseReference mMessagesRef = mDatabase.child("user").child("userid-2");
+        mMessagesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (ds.getKey().contains("point")) {
+                        Integer point = ds.getValue(Integer.class);
+                        newPoint = point += 10;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
 
         buttonPay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +161,8 @@ public class LocalGuideActivity extends AppCompatActivity {
                         locals1.setPay(true);
                         localsArrayList.set(0, locals1);
 
+                        mMessagesRef.child("point").setValue(newPoint);
+
                         mAdapter.notifyDataSetChanged();
                         rlPay.setVisibility(View.GONE);
                     }
@@ -147,10 +172,8 @@ public class LocalGuideActivity extends AppCompatActivity {
 
                     }
                 });
-
             }
         });
-
 
     }
 }

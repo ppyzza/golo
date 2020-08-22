@@ -35,9 +35,9 @@ public class LocalFragment extends Fragment {
 
         mActivity = getActivity();
         Togo togo = new Togo();
-        togo.setTitle("Korea Tour Online");
+        togo.setTitle("Doi Pui with Great Local tour");
         togo.setDescription("A busy day spent exploring must-see attractions, including Wat Arun, The Grand Palace, and Te…");
-        togo.setPeriod("Bangkok | 1 Day | 6 Places");
+        togo.setPeriod("Chiang Mai | 1 Day | 3 Places");
         togo.setBy("Planned by Bo Chaleeporn");
         togo.setImage("https://picsum.photos/300/175");
 

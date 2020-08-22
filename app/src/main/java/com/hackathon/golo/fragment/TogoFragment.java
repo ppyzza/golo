@@ -34,10 +34,10 @@ public class TogoFragment extends Fragment {
 
         mActivity = getActivity();
         Togo togo = new Togo();
-        togo.setTitle("If you could have a day");
-        togo.setDescription("A busy day spent exploring must-see attractions, including Wat Arun, The Grand Palace, and Te…");
-        togo.setPeriod("Bangkok | 1 Day | 6 Places");
-        togo.setBy("Planned by Bo Chaleeporn");
+        togo.setTitle("One Day Before You Leave");
+        togo.setDescription("A busy day spent exploring must-see attractions before you leave from Chiang Mai, including Tha Pae gate, Warorot Market, and Te…");
+        togo.setPeriod("Chiang Mai | 1 Day | 4 Places");
+        togo.setBy("Planned by Ko Moonyung");
         togo.setImage("https://picsum.photos/300/175");
 
         for (int i = 0; i < 5; i++) {

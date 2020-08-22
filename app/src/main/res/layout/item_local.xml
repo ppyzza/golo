@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:src="@mipmap/pic_no_image"
+                    android:src="@drawable/img_cnx2"
                     android:id="@+id/iv_banner"
                     android:layout_width="match_parent"
                     android:scaleType="centerCrop"

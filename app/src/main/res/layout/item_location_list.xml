@@ -11,6 +11,7 @@
     android:paddingBottom="10dp">
 
     <LinearLayout
+        android:layout_toStartOf="@+id/location_more_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
