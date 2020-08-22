@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.hackathon.golo.GlideApp;
 import com.hackathon.golo.R;
-import com.hackathon.golo.account.AccountPagerAdapter;
+import com.hackathon.golo.account_follow.AccountFollowPagerAdapter;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class AccountFollowFragment extends Fragment {
     private TextView tvName;
     private ArrayList<String> data = new ArrayList<>();
 
-    private AccountPagerAdapter adapter;
+    private AccountFollowPagerAdapter adapter;
     private String titleArray[];
     private String name;
     private String image;
@@ -84,7 +84,7 @@ public class AccountFollowFragment extends Fragment {
             tabLayout.addTab(tabLayout.newTab().setText(data.get(i)));
         }
 
-        adapter = new AccountPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
+        adapter = new AccountFollowPagerAdapter(getChildFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(1);
 
