@@ -55,10 +55,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".PromotionActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/MTheme.NoActionBar" />
         <activity
             android:name=".PromotionDetailActivity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/MTheme.NoActionBar" />
         <activity
             android:name=".AccountFollowDetailActivity"
             android:theme="@style/AppTheme" />

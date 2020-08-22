@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import pl.aprilapps.switcher.Switcher;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -54,7 +55,7 @@ import org.th.tatsdk.search.TATPlacesSearchResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.aprilapps.switcher.Switcher;
+
 
 public class FindExplorerFragment extends Fragment implements ExplorerContract.View, SearchExploreContract.View {
 

@@ -1,6 +1,7 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.hackathon.golo.PromotionDetailActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.Offers;
@@ -38,28 +40,24 @@ public class OffersAdaptor extends RecyclerView.Adapter<OffersAdaptor.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder,final int position) {
         holder.tvTitle.setText(offersArrayList.get(position).getTitle());
         holder.tvDesc.setText(offersArrayList.get(position).getTitle());
 
-        switch (position) {
-            default:
-                Glide.with(mContext).load("https://picsum.photos/128/61").into(holder.ivOffers);
-                break;
-            case 6:
-                Glide.with(mContext).load("https://picsum.photos/127/61").into(holder.ivOffers);
-                break;
-            case 7:
-                Glide.with(mContext).load("https://picsum.photos/129/61").into(holder.ivOffers);
-                break;
-            case 8:
-                Glide.with(mContext).load("https://picsum.photos/120/61").into(holder.ivOffers);
-                break;
-            case 9:
-                Glide.with(mContext).load("https://picsum.photos/119/61").into(holder.ivOffers);
-                break;
-        }
 
+        Glide.with(mContext).load(offersArrayList.get(position).getImage()).into(holder.ivOffers);
+
+        holder.ivOffers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, PromotionDetailActivity.class);
+                i.putExtra("position", position);
+                i.putExtra("image", offersArrayList.get(position).getImage());
+                i.putExtra("point", offersArrayList.get(position).getPoint());
+                i.putExtra("pointDiscount", offersArrayList.get(position).getPointDiscount());
+                mContext.startActivity(i);
+            }
+        });
 
     }
 

@@ -87,7 +87,7 @@ public class MainExplorerAdaptor extends RecyclerView.Adapter<RecyclerView.ViewH
         promotionHolder.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mActivity, PromotionDetailActivity.class);
+                Intent i = new Intent(mActivity, PromotionActivity.class);
                 mActivity.startActivity(i);
             }
         });

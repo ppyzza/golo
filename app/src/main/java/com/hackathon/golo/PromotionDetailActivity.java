@@ -1,6 +1,8 @@
 package com.hackathon.golo;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,14 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.hackathon.golo.adaptor.PromotionAdaptor;
 import com.hackathon.golo.contract.PromotionContract;
+import com.hackathon.golo.fragment.ConfirmRedeemDialogFragment;
 import com.hackathon.golo.model.Attribute;
 import com.hackathon.golo.model.Campaign;
 import com.hackathon.golo.model.Promotion;
@@ -27,13 +28,10 @@ import com.hackathon.golo.presenters.PromotionPresenter;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class PromotionDetailActivity extends AppCompatActivity implements PromotionContract.View {
     private ArrayList<Promotion> promotionList;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private PromotionPresenter promotionPresenter;
     private TextView tvName;
     private TextView tvDescription;
@@ -42,6 +40,7 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
     private TextView tvYourPoint;
     private TextView tvCount;
     private TextView tvPoint;
+    private TextView tvPointDiscount;
     private ImageView ivDetail;
     private ImageView ivMinus;
     private ImageView ivPlus;
@@ -50,6 +49,11 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
     private Integer count = 1;
     private Integer sumPoint = 0;
     private Integer userPoint = 0;
+    private int positions = 0;
+    private Activity mActivity;
+    private String image;
+    private String pointDiscount;
+    private String point;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +65,29 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
         tvDetail = (TextView) findViewById(R.id.tv_detail);
         tvSumPoint = (TextView) findViewById(R.id.tv_sum_point);
         tvYourPoint = (TextView) findViewById(R.id.tv_your_point);
-        ivDetail = (ImageView) findViewById(R.id.iv_image);
+        ivDetail = findViewById(R.id.iv_image_promotion);
         tvCount = (TextView)  findViewById(R.id.tv_count);
-        tvPoint = (TextView)  findViewById(R.id.tv_point_coupon);
+        tvPoint = (TextView)  findViewById(R.id.tv_point);
+        tvPointDiscount = (TextView)  findViewById(R.id.tv_point_coupon);
         promotionPresenter = new PromotionPresenter(this);
         promotionPresenter.getPromotionDetail();
+
+        mActivity = PromotionDetailActivity.this;
+
+        Intent intent = getIntent();
+        positions = intent.getIntExtra("position", 0);
+        image = intent.getStringExtra("image");
+        pointDiscount = intent.getStringExtra("pointDiscount");
+        point = intent.getStringExtra("point");
+
+
+        sumPoint = Integer.parseInt(pointDiscount);
+        tvPoint.setText("From "+point+" points");
+        tvPointDiscount.setText(pointDiscount + " point");
+        tvSumPoint.setText(pointDiscount);
+        Glide.with(mActivity).load(image).into(ivDetail);
+
+
         final Attribute attribute = new Attribute();
         attribute.setTravel("Chiang mai");
 
@@ -74,18 +96,35 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
         buttonRedeem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("tag", sumPoint.toString() +" "+ userPoint.toString());
-                if(sumPoint > userPoint){
-                    Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "Point not enough", Toast.LENGTH_LONG);
-                    toast.show();
-                } else {
-                    RedeemRequest request  = new RedeemRequest();
-                    request.setCampaignCode(promotionList.get(0).getRedeemCode());
-                    request.setChannel("");
-                    request.setAttribute(attribute);
-                    promotionPresenter.redeem(request);
-                }
+
+                final ConfirmRedeemDialogFragment redeemBottomDialogFragment =
+                        ConfirmRedeemDialogFragment.newInstance();
+
+                redeemBottomDialogFragment.show(getSupportFragmentManager(),
+                        "confirm_dialog");
+                redeemBottomDialogFragment.setConfirmRedeemDialogInterface(
+                        new ConfirmRedeemDialogFragment.ConfirmRedeemDialogInterface() {
+                    @Override
+                    public void confirm() {
+                        if(sumPoint > userPoint){
+                            Context context = getApplicationContext();
+                            Toast toast = Toast.makeText(context, "Point not enough", Toast.LENGTH_LONG);
+                            toast.show();
+                        } else {
+                            RedeemRequest request  = new RedeemRequest();
+                            request.setCampaignCode(promotionList.get(0).getRedeemCode());
+                            request.setChannel("");
+                            request.setAttribute(attribute);
+                            promotionPresenter.redeem(request);
+                        }
+                    }
+
+                    @Override
+                    public void cancel() {
+
+                    }
+                }, sumPoint
+               );
             }
         });
 
@@ -146,27 +185,21 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
 
     @Override
     public void showPromotionDetailSuccess(ArrayList<Promotion> promotion) {
-        if (!promotion.isEmpty()) {
             promotionList = promotion;
-            sumPoint = promotion.get(0).getPointDiscount();
-            tvName.setText(promotion.get(0).getName());
-            tvDescription.setText(promotion.get(0).getDescription());
-            tvDetail.setText(promotion.get(0).getVoucherDetail());
-            tvSumPoint.setText(promotion.get(0).getPointDiscount());
-            tvPoint.setText(promotion.get(0).getPoint());
-            Glide.with(this).load(promotion.get(0).getImage()).into(ivDetail);
-        }
-
+            tvName.setText(promotion.get(positions).getName());
+            tvDescription.setText(promotion.get(positions).getDescription());
+            tvDetail.setText(promotion.get(positions).getVoucherDetail());
     }
 
     @Override
     public void showRedeemSuccess(Campaign campaign) {
         Log.i("tag", "Success");
+        final DatabaseReference mMessagesRef = mDatabase.child("user").child("userid-2");
+        mMessagesRef.child("point").setValue(userPoint - sumPoint);
+
         Context context = getApplicationContext();
         Toast toast = Toast.makeText(context, "Redeem Success", Toast.LENGTH_LONG);
         toast.show();
-
-        // filebase minus point
     }
 
     @Override
