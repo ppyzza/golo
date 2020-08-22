@@ -45,11 +45,15 @@ public class PlanningActivity extends AppCompatActivity {
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private Typeface typeface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.planning_fragment, new PlanningFragment());
+        transaction.commit();
+
         setContentView(R.layout.activity_planning);
 
         Intent i = getIntent();
@@ -59,13 +63,12 @@ public class PlanningActivity extends AppCompatActivity {
         final DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         final DatabaseReference mPlanRef = mRootRef.child("plan/userid-2/" + planId);
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        adapter = new TabAdapter(getSupportFragmentManager());
-
         mPlanRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                viewPager = (ViewPager) findViewById(R.id.viewPager);
+                tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+                adapter = new TabAdapter(getSupportFragmentManager());
                 PlanModel value = dataSnapshot.getValue(PlanModel.class);
                 String form = value.getFrom();
                 String to = value.getTo();
