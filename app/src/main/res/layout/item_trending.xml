@@ -10,7 +10,7 @@
         android:id="@+id/iv_trending_thumb"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/normal_margin"
-        android:src="@drawable/ic_star"
+        android:src="@drawable/no_image_thumb"
         />
 
     <ImageView
