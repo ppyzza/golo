@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    android:orientation="vertical">
+
     <include
         android:id="@+id/loading"
+        layout="@layout/activity_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/activity_loading"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
+
     <include
         android:id="@+id/notfound"
+        layout="@layout/activity_datanotfound"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        layout="@layout/activity_datanotfound"
-        android:visibility="gone"
-        />
+        android:visibility="gone" />
+
     <RelativeLayout
         android:id="@+id/rl_trip_name_tf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:drawableStart="@mipmap/ic_pin_gray"
-            android:layout_marginStart="@dimen/normal_margin"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_white_white"
-            android:layout_toStartOf="@+id/ivLeft"
-            android:layout_centerVertical="true"
-            android:textSize="12sp"
-            android:textColorHint="#d5d7db"
-            android:textColor="@android:color/black"
-            android:hint="Find Location and things todo"
-            android:paddingStart="@dimen/normal_margin"
-            android:drawablePadding="@dimen/activity_vertical_four"
-            />
-        <ImageView
-            android:id="@+id/ivLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@mipmap/ic_new_filter"
-            android:layout_margin="@dimen/normal_margin"
-            />
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:layout_toStartOf="@+id/ivLeft"
+                android:background="@drawable/bg_white_white"
+                android:drawableStart="@mipmap/ic_pin_gray"
+                android:drawablePadding="@dimen/activity_vertical_four"
+                android:hint="Find Location and things todo"
+                android:paddingStart="@dimen/normal_margin"
+                android:textColor="@android:color/black"
+                android:textColorHint="#d5d7db"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/ivLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/normal_margin"
+                android:src="@mipmap/ic_new_filter" />
+        </RelativeLayout>
     </RelativeLayout>
-    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/content_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

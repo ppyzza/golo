@@ -20,6 +20,7 @@ public class CreateAccount extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(CreateAccount.this, SelectCategoryActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
