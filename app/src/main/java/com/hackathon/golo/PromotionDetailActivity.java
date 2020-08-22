@@ -18,6 +18,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.golo.adaptor.PromotionAdaptor;
 import com.hackathon.golo.contract.PromotionContract;
+import com.hackathon.golo.fragment.ConfirmRedeemDialogFragment;
+import com.hackathon.golo.fragment.PaymentDialogFragment;
 import com.hackathon.golo.model.Attribute;
 import com.hackathon.golo.model.Campaign;
 import com.hackathon.golo.model.Promotion;
@@ -74,18 +76,34 @@ public class PromotionDetailActivity extends AppCompatActivity implements Promot
         buttonRedeem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("tag", sumPoint.toString() +" "+ userPoint.toString());
-                if(sumPoint > userPoint){
-                    Context context = getApplicationContext();
-                    Toast toast = Toast.makeText(context, "Point not enough", Toast.LENGTH_LONG);
-                    toast.show();
-                } else {
-                    RedeemRequest request  = new RedeemRequest();
-                    request.setCampaignCode(promotionList.get(0).getRedeemCode());
-                    request.setChannel("");
-                    request.setAttribute(attribute);
-                    promotionPresenter.redeem(request);
+
+                final ConfirmRedeemDialogFragment redeemBottomDialogFragment =
+                        ConfirmRedeemDialogFragment.newInstance();
+
+                redeemBottomDialogFragment.show(getSupportFragmentManager(),
+                        "confirm_dialog");
+                redeemBottomDialogFragment.setConfirmRedeemDialogInterface(new ConfirmRedeemDialogFragment.ConfirmRedeemDialogInterface() {
+                    @Override
+                    public void confirm() {
+                        if(sumPoint > userPoint){
+                            Context context = getApplicationContext();
+                            Toast toast = Toast.makeText(context, "Point not enough", Toast.LENGTH_LONG);
+                            toast.show();
+                        } else {
+                            RedeemRequest request  = new RedeemRequest();
+                            request.setCampaignCode(promotionList.get(0).getRedeemCode());
+                            request.setChannel("");
+                            request.setAttribute(attribute);
+                            promotionPresenter.redeem(request);
+                        }
+                    }
+
+                    @Override
+                    public void cancel() {
+
+                    }
                 }
+               );
             }
         });
 
