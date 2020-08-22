@@ -1,6 +1,7 @@
 package com.hackathon.golo.adaptor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.hackathon.golo.ItinerariesActivity;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Offers;
 import com.hackathon.golo.model.Togo;
@@ -45,6 +47,14 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
         holder.tvBy.setText((offersArrayList.get(position).getBy()));
         // Glide.with(mContext).load(offersArrayList.get(position)).into(holder.ivOffers);
 
+        holder.ivBanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, ItinerariesActivity.class);
+                mContext.startActivity(i);
+            }
+        });
+
     }
 
     @Override
@@ -73,7 +83,7 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
         ImageView ivOffers;
         TextView tvPeriod;
         TextView tvBy;
-
+        ImageView ivBanner;
         ViewHolder(View view) {
             super(view);
             tvTitle = view.findViewById(R.id.tv_title);
@@ -81,6 +91,7 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
             ivOffers = view.findViewById(R.id.iv_banner);
             tvPeriod = view.findViewById(R.id.tv_period);
             tvBy = view.findViewById(R.id.tv_by);
+            ivBanner = view.findViewById(R.id.iv_banner);
         }
     }
 }

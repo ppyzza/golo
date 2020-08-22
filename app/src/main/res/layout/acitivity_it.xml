@@ -11,27 +11,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="54dp"
-        android:weightSum="2"
+        android:weightSum="1"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:id="@+id/rl_pay"
         >
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="@dimen/normal_margin"
-        android:text="1,000 Points"
-        android:textColor="#6bc059"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        />
+
     <Button
         android:layout_weight="1"
         android:id="@+id/bt_ok"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Book Me!"
+        android:text="Copy to New Plan"
         android:textColor="@color/colorWhite"
         android:gravity="center"
         android:background="@drawable/bg_white_blue"

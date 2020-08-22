@@ -20,4 +20,14 @@ public class Locals {
 
     LocalDetail localDetail;
     private String viewType;
+
+    public boolean isPay() {
+        return isPay;
+    }
+
+    public void setPay(boolean pay) {
+        isPay = pay;
+    }
+
+    private boolean isPay = false;
 }
