@@ -58,7 +58,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/activity_vertical_eight"
-            android:src="@mipmap/ic_pin_gray" />
+            android:src="@mipmap/ic_check_check" />
 
     </RelativeLayout>
 
@@ -94,6 +94,7 @@
                 android:text="Credit/Debit Card"
                 android:textColor="#8792a0" />
         </LinearLayout>
+
     </RelativeLayout>
     <LinearLayout
         android:layout_marginTop="@dimen/activity_vertical_eight"
