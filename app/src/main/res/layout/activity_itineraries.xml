@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItinerariesActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar3"
         android:layout_width="match_parent"
@@ -56,31 +60,56 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/content_recyclerview"
+    <FrameLayout
+        android:id="@+id/itinerariesFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar3"
-        android:layout_marginBottom="64dp" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:weightSum="1"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/rl_pay"
-        >
+        android:layout_below="@id/toolbar3">
 
-        <Button
-            android:id="@+id/bt_ok"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/normal_margin"
-            android:layout_marginEnd="@dimen/normal_margin"
-            android:layout_weight="1"
-            android:background="@drawable/bg_white_blue"
-            android:gravity="center"
-            android:text="Copy to New Plan"
-            android:textColor="@color/colorWhite" />
-    </LinearLayout>
+    </FrameLayout>
+
+    <!--    <LinearLayout-->
+<!--        android:id="@+id/layout_destination_and_date"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/toolbar3"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:orientation="vertical"-->
+<!--        android:paddingStart="15dp"-->
+<!--        android:paddingTop="30dp"-->
+<!--        android:paddingEnd="0dp"-->
+<!--        android:paddingBottom="20dp">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:text="Bangkok | 1 Day | 6 Places"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:textSize="16sp" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="340dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="If you only have a day"-->
+<!--                android:textColor="#FFFFFF"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textStyle="bold" />-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/imageButton3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@color/colorPrimary"-->
+<!--                app:srcCompat="@drawable/ic_heart_white" />-->
+<!--        </LinearLayout>-->
+
+<!--    </LinearLayout>-->
 </RelativeLayout>
