@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_period"
             android:textColor="@color/colorWhite"
-            android:text="Bangkok | 1 Day | 6 Places"
+            android:text="Chaing Mai | 1 Day | 4 Places"
             android:textSize="14sp"
             />
         <TextView
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_trip_name"
             android:textColor="@color/colorWhite"
-            android:text="If you only have a day"
+            android:text="One Day Before You Leave"
             android:textStyle="bold"
             android:textSize="18sp"
             />
@@ -88,7 +88,7 @@
                     android:id="@+id/tv_plan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3 Plans | "
+                    android:text="9 Plans | "
                     android:textColor="@color/colorPrimary" />
 
                 <TextView
@@ -96,7 +96,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/tv_plan"
-                    android:text="1 Reviewer"
+                    android:text="119 Reviewer"
                     android:textColor="@color/colorPrimary" />
             </RelativeLayout>
 

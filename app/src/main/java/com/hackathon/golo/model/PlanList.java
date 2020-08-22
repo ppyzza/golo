@@ -13,7 +13,7 @@ public class PlanList {
     private String viewType;
     private String placeName;
     private int review;
-    private int distance;
+    private String distance;
 
     public String getPlaceName() {
         return placeName;
@@ -31,11 +31,11 @@ public class PlanList {
         this.review = review;
     }
 
-    public int getDistance() {
+    public String getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(String distance) {
         this.distance = distance;
     }
 
