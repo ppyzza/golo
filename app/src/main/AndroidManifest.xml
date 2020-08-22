@@ -64,6 +64,10 @@
         <activity
             android:name=".LocalGuideActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ItinerariesActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

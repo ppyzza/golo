@@ -11,21 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.hackathon.golo.ItinerariesActivity;
 import com.hackathon.golo.R;
-import com.hackathon.golo.model.Offers;
 import com.hackathon.golo.model.Togo;
 
 import java.util.ArrayList;
 
 
-public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
+public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
 
     Context mContext;
     ArrayList<Togo> offersArrayList;
 
-    public TogoAdaptor(Context context, ArrayList<Togo> explorers) {
+    public CategoryAdaptor(Context context, ArrayList<Togo> explorers) {
         mContext = context;
         offersArrayList = explorers;
     }
@@ -35,7 +33,7 @@ public class TogoAdaptor extends RecyclerView.Adapter<TogoAdaptor.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout
                 .item_todo, null, false);
-        TogoAdaptor.ViewHolder vh = new TogoAdaptor.ViewHolder(view);
+        CategoryAdaptor.ViewHolder vh = new CategoryAdaptor.ViewHolder(view);
         return vh;
     }
 

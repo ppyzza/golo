@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hackathon.golo.adaptor.LocalListAdaptor;
+import com.hackathon.golo.adaptor.TogoContentAdaptor;
 import com.hackathon.golo.fragment.PaymentDialogFragment;
 import com.hackathon.golo.model.LocalDetail;
 import com.hackathon.golo.model.Locals;
@@ -19,7 +20,7 @@ import com.hackathon.golo.model.PlanList;
 
 import java.util.ArrayList;
 
-public class LocalGuideActivity extends AppCompatActivity {
+public class ItinerariesActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private Activity mActivity;
@@ -32,13 +33,13 @@ public class LocalGuideActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acitivity_local_detail);
+        setContentView(R.layout.acitivity_it);
 
         mRecyclerView = findViewById(R.id.content_recyclerview);
         buttonPay = findViewById(R.id.bt_ok);
         rlPay = findViewById(R.id.rl_pay);
 
-        mActivity = LocalGuideActivity.this;
+        mActivity = ItinerariesActivity.this;
 
 
         Locals locals = new Locals();
@@ -119,7 +120,7 @@ public class LocalGuideActivity extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new LocalListAdaptor(mActivity, localsArrayList);
+        mAdapter = new TogoContentAdaptor(mActivity, localsArrayList);
 
         mRecyclerView.setAdapter(mAdapter);
 

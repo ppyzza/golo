@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f6f7f8"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_plan_middle"
+        android:id="@+id/iv_middle"
+        />
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/iv_middle"
+        android:layout_centerVertical="true"
+        android:textColor="#515968"
+        />
+</RelativeLayout>
