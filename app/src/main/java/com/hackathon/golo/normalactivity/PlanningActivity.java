@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.hackathon.golo.R;
 import com.hackathon.golo.adaptor.TabAdapter;
+import com.hackathon.golo.fragment.AddHereFragment;
 import com.hackathon.golo.fragment.ExplorerFragment;
 import com.hackathon.golo.fragment.FindExplorerFragment;
 import com.hackathon.golo.fragment.PlanningFragment;
@@ -130,7 +131,7 @@ public class PlanningActivity extends AppCompatActivity {
     public void onMessageEvent(SelectLocationModel event) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.add_here_mock, new PlanningFragment());
+        transaction.replace(R.id.planning_fragment, new AddHereFragment());
         transaction.commit();
     };
 
