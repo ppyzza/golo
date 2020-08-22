@@ -15,6 +15,11 @@
     <string name="explorer_nature">Nature</string>
     <string name="explorer_nightlife">Nightlife</string>
     <string name="explorer_more">More</string>
+    <string name="explorer_adventure">Adventure</string>
+    <string name="explorer_historical">Historical</string>
+    <string name="explorer_camping">Camping</string>
+    <string name="explorer_show">Shows</string>
+    <string name="explorer_classes">Classes</string>
     <string name="item_text">Reviews</string>
     <string name="item_from_here">%1s from here</string>
     <string name="item_follow">Follow</string>

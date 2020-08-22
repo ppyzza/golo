@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+    <include
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activity_loading"
+        android:visibility="gone"
+        />
+    <include
+        android:id="@+id/notfound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activity_datanotfound"
+        android:visibility="gone"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What’s most important to you when traveling?"
+        android:textColor="#010c1f"
+        android:textSize="22sp"
+        android:layout_margin="@dimen/normal_margin"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/content_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Let's Get Started"
+        android:textColor="@color/colorWhite"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_white_blue"
+        android:layout_marginEnd="@dimen/normal_margin"
+        android:layout_marginStart="@dimen/normal_margin"
+        android:layout_marginTop="@dimen/normal_margin"
+        />
+</LinearLayout>

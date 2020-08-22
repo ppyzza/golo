@@ -63,6 +63,8 @@ public class SuggestedAdaptor extends RecyclerView.Adapter<SuggestedAdaptor.View
             public void onClick(View view) {
                 Intent i = new Intent(mContext, AccountFollowDetailActivity.class);
                 i.putExtra("fragment", "account_follow");
+                i.putExtra("image", travelMateArrayList.get(position).getAvatar());
+                i.putExtra("name", travelMateArrayList.get(position).getName());
                 mContext.startActivity(i);
             }
         });

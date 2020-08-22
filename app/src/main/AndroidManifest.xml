@@ -68,6 +68,9 @@
         <activity
             android:name=".ItinerariesActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SelectCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

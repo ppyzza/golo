@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.hackathon.golo.adaptor.LocalListAdaptor;
 import com.hackathon.golo.fragment.PaymentDialogFragment;
 import com.hackathon.golo.model.LocalDetail;
@@ -18,6 +18,11 @@ import com.hackathon.golo.model.Locals;
 import com.hackathon.golo.model.PlanList;
 
 import java.util.ArrayList;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class LocalGuideActivity extends AppCompatActivity {
 
@@ -28,6 +33,8 @@ public class LocalGuideActivity extends AppCompatActivity {
     private ArrayList<PlanList> planLists = new ArrayList<>();
     private Button buttonPay;
     private LinearLayout rlPay;
+    private DatabaseReference mDatabase;
+    private int newPoint;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -123,6 +130,26 @@ public class LocalGuideActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        final DatabaseReference mMessagesRef = mDatabase.child("user").child("userid-2");
+        mMessagesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    if (ds.getKey().contains("point")) {
+                        Integer point = ds.getValue(Integer.class);
+                        newPoint = point += 10;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+            }
+        });
+
         buttonPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,6 +165,8 @@ public class LocalGuideActivity extends AppCompatActivity {
                         locals1.setPay(true);
                         localsArrayList.set(0, locals1);
 
+                        mMessagesRef.child("point").setValue(newPoint);
+
                         mAdapter.notifyDataSetChanged();
                         rlPay.setVisibility(View.GONE);
                     }
@@ -147,10 +176,8 @@ public class LocalGuideActivity extends AppCompatActivity {
 
                     }
                 });
-
             }
         });
-
 
     }
 }
