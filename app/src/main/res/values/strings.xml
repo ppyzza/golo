@@ -15,6 +15,11 @@
     <string name="explorer_nature">Nature</string>
     <string name="explorer_nightlife">Nightlife</string>
     <string name="explorer_more">More</string>
+    <string name="explorer_adventure">Adventure</string>
+    <string name="explorer_historical">Historical</string>
+    <string name="explorer_camping">Camping</string>
+    <string name="explorer_show">Shows</string>
+    <string name="explorer_classes">Classes</string>
     <string name="item_text">Reviews</string>
     <string name="item_from_here">%1s from here</string>
     <string name="item_follow">Follow</string>
@@ -48,10 +53,12 @@
     <string name="go_to_my_favorite">Go to My Favorite</string>
     <string name="no_plan_this_day">No Plans on This Day</string>
 
-<!--    TODO delete-->
+    <!--    TODO delete-->
     <string name="planning_item_location">Pong Yang Adventure Park Experience</string>
     <string name="planning_item_score">4.4</string>
     <string name="planning_item_review">(67 Reviews) | 1.5 km from here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

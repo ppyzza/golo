@@ -4,9 +4,9 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import com.hackathon.golo.account_follow.fragment.AccountPlanFragment;
-import com.hackathon.golo.account_follow.fragment.AccountPlanLocalFragment;
-import com.hackathon.golo.account_follow.fragment.AccountReviewerFragment;
+import com.hackathon.golo.account_follow.fragment.AccountFollowPlanFragment;
+import com.hackathon.golo.account_follow.fragment.AccountFollowPlanLocalFragment;
+import com.hackathon.golo.account_follow.fragment.AccountFollowReviewerFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -28,16 +28,16 @@ public class FollowPagerAdaptor extends FragmentStatePagerAdapter {
         switch (position) {
             case 1:
                 tabPosition = position;
-                AccountPlanLocalFragment mainFragment1 = new AccountPlanLocalFragment();
+                AccountFollowPlanLocalFragment mainFragment1 = new AccountFollowPlanLocalFragment();
                 return mainFragment1;
             case 2:
                 tabPosition = position;
-                AccountReviewerFragment mainFragment12 = new AccountReviewerFragment();
+                AccountFollowReviewerFragment mainFragment12 = new AccountFollowReviewerFragment();
                 return mainFragment12;
 
             default:
                 tabPosition = position;
-                AccountPlanFragment mainFragment = new AccountPlanFragment();
+                AccountFollowPlanFragment mainFragment = new AccountFollowPlanFragment();
                 return mainFragment;
 
         }

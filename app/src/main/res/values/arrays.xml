@@ -24,4 +24,64 @@
         <item>@drawable/nightlife</item>
         <item>@drawable/more</item>
     </integer-array>
+
+    <integer-array name="menu_explorer_register">
+        <item>@drawable/must_see</item>
+        <item>@drawable/travelling</item>
+        <item>@drawable/food_drink</item>
+        <item>@drawable/shopping</item>
+        <item>@drawable/art_culture</item>
+        <item>@drawable/nature</item>
+        <item>@drawable/nightlife</item>
+        <item>@drawable/adventure</item>
+        <item>@drawable/historical</item>
+        <item>@drawable/camping</item>
+        <item>@drawable/shows</item>
+        <item>@drawable/classes</item>
+    </integer-array>
+
+    <integer-array name="menu_explorer_register_select">
+        <item>@drawable/select_must_see</item>
+        <item>@drawable/select_travelling</item>
+        <item>@drawable/select_fooddrink</item>
+        <item>@drawable/select_shopping</item>
+        <item>@drawable/select_art</item>
+        <item>@drawable/select_nature</item>
+        <item>@drawable/select_night</item>
+        <item>@drawable/select_adventure</item>
+        <item>@drawable/select_history</item>
+        <item>@drawable/select_camping</item>
+        <item>@drawable/select_shows</item>
+        <item>@drawable/select_classs</item>
+    </integer-array>
+
+    <integer-array name="menu_explorer_register_check">
+        <item>@drawable/must_see</item>
+        <item>@drawable/travelling</item>
+        <item>@drawable/food_drink</item>
+        <item>@drawable/shopping</item>
+        <item>@drawable/art_culture</item>
+        <item>@drawable/nature</item>
+        <item>@drawable/nightlife</item>
+        <item>@drawable/adventure</item>
+        <item>@drawable/historical</item>
+        <item>@drawable/camping</item>
+        <item>@drawable/shows</item>
+        <item>@drawable/classes</item>
+    </integer-array>
+
+    <string-array name="menu_explorer_register_text">
+        <item>@string/explorer_must_see</item>
+        <item>@string/explorer_travelling</item>
+        <item>@string/explorer_food_drink</item>
+        <item>@string/explorer_shopping</item>
+        <item>@string/explorer_art_culture</item>
+        <item>@string/explorer_nature</item>
+        <item>@string/explorer_nightlife</item>
+        <item>@string/explorer_adventure</item>
+        <item>@string/explorer_historical</item>
+        <item>@string/explorer_camping</item>
+        <item>@string/explorer_show</item>
+        <item>@string/explorer_classes</item>
+    </string-array>
 </resources>

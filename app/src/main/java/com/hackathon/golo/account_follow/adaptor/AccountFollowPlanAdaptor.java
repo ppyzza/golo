@@ -14,20 +14,21 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AccountPlanLocalAdaptor extends RecyclerView.Adapter<AccountPlanLocalAdaptor.ViewHolder> {
+
+public class AccountFollowPlanAdaptor extends RecyclerView.Adapter<AccountFollowPlanAdaptor.ViewHolder> {
 
     Context mContext;
     public ArrayList<AccountPlanModel> planList = new ArrayList<>();
 
-    public AccountPlanLocalAdaptor(Context context) {
+    public AccountFollowPlanAdaptor(Context context) {
         mContext = context;
     }
 
     @NonNull
     @Override
-    public AccountPlanLocalAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan_local, null, false);
-        AccountPlanLocalAdaptor.ViewHolder vh = new AccountPlanLocalAdaptor.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan, null, false);
+        AccountFollowPlanAdaptor.ViewHolder vh = new AccountFollowPlanAdaptor.ViewHolder(view);
         return vh;
     }
 
@@ -61,9 +62,9 @@ public class AccountPlanLocalAdaptor extends RecyclerView.Adapter<AccountPlanLoc
 
         ViewHolder(View view) {
             super(view);
-            tvName = view.findViewById(R.id.tv_planName);
-            tvDescription = view.findViewById(R.id.tv_planDate);
-            tvInfo = view.findViewById(R.id.tv_location);
+            tvName = view.findViewById(R.id.tv_plan_name);
+            tvDescription = view.findViewById(R.id.tv_plan_description);
+            tvInfo = view.findViewById(R.id.tv_plan_info);
         }
     }
 }

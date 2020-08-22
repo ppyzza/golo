@@ -50,7 +50,10 @@ public class ExplorerDetailActivity extends AppCompatActivity implements DetailE
         placeId = mBundle.getString("placeId" ,"");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("hhsss");
+        toolbar.setVisibility(View.GONE);
         setSupportActionBar(toolbar);
+
 
 
         ivBanner = findViewById(R.id.iv_banner);

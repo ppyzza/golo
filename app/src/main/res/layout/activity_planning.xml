@@ -60,10 +60,10 @@
 
   </androidx.appcompat.widget.Toolbar>
 
-  <fragment
-      android:id="@+id/fragment"
-      android:name="com.hackathon.golo.fragment.PlanningFragment"
+  <androidx.fragment.app.FragmentContainerView
+      android:id="@+id/planning_fragment"
       android:layout_width="match_parent"
-      android:layout_height="match_parent" />
+      android:layout_height="match_parent"
+      android:background="#FFFFFF" />
 
 </com.google.android.material.appbar.AppBarLayout>

@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hackathon.golo.R;
-import com.hackathon.golo.account_follow.adaptor.AccountPlanLocalAdaptor;
+import com.hackathon.golo.account_follow.adaptor.AccountFollowPlanLocalAdaptor;
 import com.hackathon.golo.account_follow.model.AccountPlanModel;
 
 import java.util.ArrayList;
@@ -18,12 +18,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AccountPlanLocalFragment extends Fragment {
+public class AccountFollowPlanLocalFragment extends Fragment {
 
     private Activity mActivity;
     private RecyclerView mRecyclerView;
     private ArrayList<AccountPlanModel> accountPlanModelArrayList = new ArrayList<>();
-    private AccountPlanLocalAdaptor adapter;
+    private AccountFollowPlanLocalAdaptor adapter;
 
     @Nullable
     @Override
@@ -34,7 +34,7 @@ public class AccountPlanLocalFragment extends Fragment {
         mActivity = getActivity();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false);
 
-        adapter = new AccountPlanLocalAdaptor(mActivity);
+        adapter = new AccountFollowPlanLocalAdaptor(mActivity);
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setAdapter(adapter);
         return rootView;

@@ -3,7 +3,6 @@
     package="com.hackathon.golo">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -15,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ItinerariesActivity"
+            android:theme="@style/MTheme.NoActionBar" />
         <activity
             android:name=".SignIn"
             android:theme="@style/MTheme.NoActionBar" />
@@ -66,8 +68,8 @@
             android:theme="@style/AppTheme" />
 
         <activity
-            android:name=".ItinerariesActivity"
-            android:theme="@style/AppTheme" />
+            android:name=".SelectCategoryActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
