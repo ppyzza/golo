@@ -29,9 +29,13 @@ import com.hackathon.golo.fragment.PlanningFragment;
 import com.hackathon.golo.fragment.TabViewFragment;
 import com.hackathon.golo.model.PlanModel;
 import com.hackathon.golo.model.PlaningModel;
+import com.hackathon.golo.model.SelectLocationModel;
 import com.hackathon.golo.model.UserModel;
 import com.hackathon.golo.myplan.MyPlanMultipleTabFragment;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -110,5 +114,25 @@ public class PlanningActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(SelectLocationModel event) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.planning_fragment, new PlanningFragment());
+        transaction.commit();
+    };
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 }

@@ -16,7 +16,10 @@ import com.bumptech.glide.Glide;
 import com.hackathon.golo.R;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.SearchResult;
+import com.hackathon.golo.model.SelectLocationModel;
 import com.hackathon.golo.normalactivity.ExplorerDetailActivity;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -50,9 +53,10 @@ public class TrendingAdaptor extends RecyclerView.Adapter<TrendingAdaptor.ViewHo
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, ExplorerDetailActivity.class);
-                i.putExtra("placeId", explorerArrayList.get(position).getPlaceId());
-                mContext.startActivity(i);
+//                Intent i = new Intent(mContext, ExplorerDetailActivity.class);
+//                i.putExtra("placeId", explorerArrayList.get(position).getPlaceId());
+//                mContext.startActivity(i);
+                EventBus.getDefault().post(new SelectLocationModel("test","test","test"));
             }
         });
 
