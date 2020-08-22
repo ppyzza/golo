@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import pl.aprilapps.switcher.Switcher;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -22,11 +23,16 @@ import com.hackathon.golo.R;
 import com.hackathon.golo.adaptor.MainExplorerAdaptor;
 import com.hackathon.golo.constans.GoloConstants;
 import com.hackathon.golo.contract.ExplorerContract;
+import com.hackathon.golo.contract.PromotionContract;
+import com.hackathon.golo.model.Campaign;
 import com.hackathon.golo.model.Explorer;
 import com.hackathon.golo.model.MainExplorerModel;
+import com.hackathon.golo.model.Offers;
+import com.hackathon.golo.model.Promotion;
 import com.hackathon.golo.model.SearchResult;
 import com.hackathon.golo.model.TravelMate;
 import com.hackathon.golo.presenters.ExplorerPresenter;
+import com.hackathon.golo.presenters.PromotionPresenter;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -46,7 +52,7 @@ import org.th.tatsdk.search.TATPlacesSearchResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplorerFragment extends Fragment implements ExplorerContract.View {
+public class ExplorerFragment extends Fragment implements ExplorerContract.View, PromotionContract.View {
 
     private Activity mActivity;
     private Context mContext;
@@ -60,6 +66,8 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
     private String apiKey = "GUjuQd31FzGhPuopjg3lM32arSZ1Ny(1YaEeMfeVbt2vtE3Xc777t4o4KOZObNLteprO3Q6xeaO3S4sxMOqdxQG=====2";
     private TATPlacesSearchParameter tatPlacesSearchParameter;
     private ExplorerPresenter mExplorerPresenter;
+    private PromotionPresenter promotionPresenter;
+    private Switcher mSwitcher;
 
 
     @Nullable
@@ -102,20 +110,23 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
 
         mainExplorerModelArrayList.add(mainExplorerModel);
 
-        mainExplorerModel = new MainExplorerModel();
-        mainExplorerModel.setSeeMore(true);
-        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
-        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
-        mainExplorerModel.setExplorerArrayList(listExplorer);
+        promotionPresenter = new PromotionPresenter(this);
+        promotionPresenter.getPromotionDetail();
 
-        mainExplorerModelArrayList.add(mainExplorerModel);
+//        mainExplorerModel = new MainExplorerModel();
+//        mainExplorerModel.setSeeMore(true);
+//        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
+//        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
+//        mainExplorerModel.setExplorerArrayList(listExplorer);
+//
+//        mainExplorerModelArrayList.add(mainExplorerModel);
 
 
 
         // getTrending();
 
         mExplorerPresenter = new ExplorerPresenter(this);
-        mExplorerPresenter.getTravelMates();
+
 
         return rootView;
     }
@@ -247,5 +258,48 @@ public class ExplorerFragment extends Fragment implements ExplorerContract.View 
         mainExplorerModelArrayList.add(mainExplorerModel);
         getTrending();
         // setAdaptor();
+    }
+
+    @Override
+    public void showPromotionSuccess(ArrayList<Promotion> promotion) {
+
+    }
+
+    @Override
+    public void showPromotionDetailSuccess(ArrayList<Promotion> promotion) {
+
+        ArrayList<Offers> offers = new ArrayList<>();
+
+        for(int i=0;i<promotion.size();i++) {
+            Offers offers1 = new Offers();
+            offers1.setId(promotion.get(i).getId());
+            offers1.setImage(promotion.get(i).getImage());
+            offers1.setTitle(promotion.get(i).getName());
+            offers1.setPoint(promotion.get(i).getPoint().toString());
+            offers1.setPointDiscount(promotion.get(i).getPointDiscount().toString());
+            offers1.setDescription(promotion.get(i).getDescription());
+            offers.add(offers1);
+        }
+
+        MainExplorerModel mainExplorerModel;
+
+        mainExplorerModel = new MainExplorerModel();
+        mainExplorerModel.setSeeMore(true);
+        mainExplorerModel.setTitle(getString(R.string.explore_menu_2));
+        mainExplorerModel.setViewType(GoloConstants.OFFER_VIEW);
+        mainExplorerModel.setOffersArrayList(offers);
+
+        mainExplorerModelArrayList.add(mainExplorerModel);
+        mExplorerPresenter.getTravelMates();
+    }
+
+    @Override
+    public void showRedeemSuccess(Campaign redeem) {
+
+    }
+
+    @Override
+    public void showRedeemFail() {
+
     }
 }

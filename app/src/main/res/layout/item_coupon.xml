@@ -49,39 +49,55 @@
             android:layout_marginTop="@dimen/activity_vertical_4"
             android:text="TextView" />
 
-        <LinearLayout
-            android:layout_below="@+id/tv_description_coupon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/normal_margin"
-            android:layout_marginRight="@dimen/normal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_4"
-            android:orientation="horizontal"
-            android:weightSum="2">
+    <LinearLayout
+        android:layout_below="@+id/tv_description_coupon"
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_vertical_10"
+        android:paddingRight="@dimen/activity_vertical_10"
+        android:paddingTop="@dimen/activity_vertical_7"
+        android:paddingBottom="@dimen/activity_vertical_7"
+        android:weightSum="3">
 
-            <TextView
-                android:id="@+id/tv_type_coupon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:background="#FF9800"
-                android:padding="10dp"
-                android:text="TextView"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="10sp" />
+        <LinearLayout
+            android:id="@+id/layout_sum_point"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_vertical_10">
 
             <TextView
                 android:id="@+id/tv_point_coupon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end
-"
-                android:layout_weight="2"
-                android:text="-50%"
-                android:textAlignment="textEnd"
+                android:text="800 point"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From 1000 points"
+                android:textColor="#ff0000"
+                android:textSize="12sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_redeem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Redeem"
+            android:radius="20dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/bg_blue2"
+            />
+
+    </LinearLayout>
     </RelativeLayout>
 
     <View

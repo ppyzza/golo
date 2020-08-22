@@ -2,46 +2,47 @@
 <com.google.android.material.appbar.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    android:layout_height="wrap_content">
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarWhite"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:contentInsetStartWithNavigation="50dp"
+            app:navigationIcon="@mipmap/ic_n_back">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:weightSum="3">
-                <ImageView
-                    android:id="@+id/iv_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_menu_white"
-                    android:layout_alignParentStart="true"
-                    android:layout_weight="1"
-                    />
+
                 <TextView
                     android:id="@+id/textView_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Must See / Offer"
-                    android:layout_weight="1"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#ffff"
+                    android:layout_weight="2"/>
 
                 <TextView
-                    android:id="@+id/textView_point"
+                    android:id="@+id/tv_user_point"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Your Point"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:background="@color/design_default_color_error"/>
+                    android:text="Your Point : 0"
+                    android:textSize="@dimen/activity_vertical_10"
+                    android:padding="@dimen/activity_vertical_5"
+                    android:background="@drawable/bg_orange"
+                    android:textColor="#ffff"
+                    android:textAlignment="center"/>
 
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>

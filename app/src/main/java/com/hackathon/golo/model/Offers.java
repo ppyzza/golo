@@ -19,6 +19,28 @@ public class Offers {
     @SerializedName("image")
     private String image;
 
+    @SerializedName("point")
+    private String point;
+
+    public String getPoint() {
+        return point;
+    }
+
+    public void setPoint(String point) {
+        this.point = point;
+    }
+
+    public String getPointDiscount() {
+        return pointDiscount;
+    }
+
+    public void setPointDiscount(String pointDiscount) {
+        this.pointDiscount = pointDiscount;
+    }
+
+    @SerializedName("pointDiscount")
+    private String pointDiscount;
+
     public String getId() {
         return id;
     }
